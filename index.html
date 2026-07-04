@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Deepika Kashyap — Full-Stack Developer & AI/ML Engineer</title>
+<meta name="description" content="Portfolio of Deepika Kashyap — Full-Stack Developer & AI/ML Engineer. B.Tech ECE student building full-stack apps, computer vision systems, and off-grid networking tools." />
+
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="scanline" aria-hidden="true"></div>
+
+<canvas id="cursorTrail" aria-hidden="true"></canvas>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-frame" id="cursorFrame" aria-hidden="true">
+  <span class="cursor-frame__corner cursor-frame__corner--tl"></span>
+  <span class="cursor-frame__corner cursor-frame__corner--tr"></span>
+  <span class="cursor-frame__corner cursor-frame__corner--bl"></span>
+  <span class="cursor-frame__corner cursor-frame__corner--br"></span>
+</div>
+
+<canvas id="cursorTrail" class="cursor-trail" aria-hidden="true"></canvas>
+<div class="cursor-reticle" id="cursorReticle" aria-hidden="true">
+  <svg viewBox="0 0 40 40">
+    <path class="corner" d="M4,13 L4,4 L13,4" />
+    <path class="corner" d="M27,4 L36,4 L36,13" />
+    <path class="corner" d="M36,27 L36,36 L27,36" />
+    <path class="corner" d="M13,36 L4,36 L4,27" />
+    <circle class="dot" cx="20" cy="20" r="3" />
+  </svg>
+</div>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="top">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand">
+      <span class="nav__dot"></span>~/deepika
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#about"><span class="nav__idx">01</span>about</a>
+      <a href="#skills"><span class="nav__idx">02</span>skills</a>
+      <a href="#experience"><span class="nav__idx">03</span>experience</a>
+      <a href="#projects"><span class="nav__idx">04</span>projects</a>
+      <a href="#contact"><span class="nav__idx">05</span>contact</a>
+    </nav>
+    <a class="nav__cta" href="mailto:deepikashyap85@gmail.com">say hello</a>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="nav__mobile" id="mobileNav" aria-label="Mobile">
+    <a href="#about">about</a>
+    <a href="#skills">skills</a>
+    <a href="#experience">experience</a>
+    <a href="#projects">projects</a>
+    <a href="#contact">contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="home">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="hero__inner">
+      <p class="hero__eyebrow mono">// signal_source: ECE → software</p>
+      <h1 class="hero__title">
+        Deepika Kashyap
+      </h1>
+      <p class="hero__role mono">
+        <span id="typedRole">Full-Stack Developer</span><span class="cursor" aria-hidden="true">&#9608;</span>
+      </p>
+      <p class="hero__desc">
+        I build systems that behave predictably under pressure — from browser-based IDEs
+        with sub-50ms leaderboards, to offline mesh networks that route emergency signals
+        without a single bar of internet. Currently a 3rd-year ECE student turning hardware
+        thinking into clean, production-shaped software.
+      </p>
+      <div class="hero__cta">
+        <a href="#projects" class="btn btn--primary">View projects</a>
+        <a href="#contact" class="btn btn--ghost">Get in touch</a>
+      </div>
+      <div class="hero__scope">
+        <svg viewBox="0 0 600 120" class="scope" preserveAspectRatio="none" aria-hidden="true">
+          <line x1="0" y1="60" x2="600" y2="60" class="scope__grid-line" />
+          <path id="scopePath" class="scope__wave"
+            d="M0,60 L40,60 L55,20 L70,100 L85,60 L140,60 L155,35 L170,85 L185,60 L260,60 L275,10 L290,110 L305,60 L400,60 L415,30 L430,90 L445,60 L520,60 L535,25 L550,95 L565,60 L600,60" />
+        </svg>
+      </div>
+    </div>
+    <a href="#about" class="hero__scroll mono" aria-label="Scroll to about section">scroll ↓</a>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <p class="section__eyebrow mono">$ cd about</p>
+    <div class="about">
+      <div class="about__text">
+        <h2 class="section__title">Bridging hardware constraints<br>and scalable software.</h2>
+        <p>
+          I'm a Software Engineering student at Chhatrapati Shahu Ji Maharaj University,
+          specializing in Electronics &amp; Communication Engineering — which means I tend to
+          think about software the way I think about circuits: latency, throughput, failure
+          modes, and what happens when the signal drops.
+        </p>
+        <p>
+          That mindset shows up in my work — an offline SOS mesh network that keeps
+          routing during connectivity dropouts, a computer-vision pipeline tuned for
+          real-time inference on modest hardware, and a competitive-programming platform
+          that shaved query time from ~320ms to under 50ms. I ship end-to-end: architecture,
+          backend, frontend, and deployment.
+        </p>
+        <p>
+          Currently building responsive interfaces part-time at Irafactory Media Agency,
+          and contributing to open-source repositories through GSSoC 2026. Open to
+          Software Engineering internships and AI/ML opportunities.
+        </p>
+      </div>
+      <div class="about__facts">
+        <div class="fact">
+          <span class="fact__label mono">location</span>
+          <span class="fact__value">Kanpur, Uttar Pradesh, India</span>
+        </div>
+        <div class="fact">
+          <span class="fact__label mono">education</span>
+          <span class="fact__value">B.Tech, Electronics &amp; Communication Engineering<br>CSJM University — Aug 2024 → May 2028</span>
+        </div>
+        <div class="fact">
+          <span class="fact__label mono">focus</span>
+          <span class="fact__value">Full-Stack Development · AI / ML · Systems that stay up</span>
+        </div>
+        <div class="fact">
+          <span class="fact__label mono">status</span>
+          <span class="fact__value"><span class="status-dot"></span>Open to internships</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section class="section" id="skills">
+    <p class="section__eyebrow mono">$ cat skills.json</p>
+    <h2 class="section__title">Tools I reach for.</h2>
+    <div class="skills">
+      <div class="skill-block">
+        <h3 class="skill-block__title mono">languages</h3>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span><span class="tag">Java</span><span class="tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3 class="skill-block__title mono">frontend</h3>
+        <div class="tags">
+          <span class="tag">React.js</span><span class="tag">HTML / CSS</span>
+          <span class="tag">Tailwind CSS</span><span class="tag">Streamlit</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3 class="skill-block__title mono">backend &amp; apis</h3>
+        <div class="tags">
+          <span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">Flask</span>
+          <span class="tag">REST APIs</span><span class="tag">JWT Auth</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3 class="skill-block__title mono">data &amp; caching</h3>
+        <div class="tags">
+          <span class="tag">PostgreSQL</span><span class="tag">MySQL</span>
+          <span class="tag">Redis</span><span class="tag">Supabase</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3 class="skill-block__title mono">ai / ml</h3>
+        <div class="tags">
+          <span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">YOLOv8</span>
+          <span class="tag">CLIP (ViT-B/32)</span><span class="tag">Scikit-learn</span><span class="tag">Gemini API</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h3 class="skill-block__title mono">devops &amp; tools</h3>
+        <div class="tags">
+          <span class="tag">Git / GitHub</span><span class="tag">Docker</span><span class="tag">Vercel</span>
+          <span class="tag">Netlify</span><span class="tag">Postman</span><span class="tag">Linux</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section class="section" id="experience">
+    <p class="section__eyebrow mono">$ git log --experience</p>
+    <h2 class="section__title">Where I've worked.</h2>
+    <div class="timeline">
+      <div class="timeline__item">
+        <div class="timeline__marker" aria-hidden="true"></div>
+        <div class="timeline__content">
+          <div class="timeline__head">
+            <h3>Junior Web Developer <span class="mono timeline__date">Jun 2026 — Present</span></h3>
+            <p class="timeline__org">Irafactory Media Agency · Bengaluru, India (Remote)</p>
+          </div>
+          <ul>
+            <li>Build and maintain responsive React interfaces, focused on rendering performance and cross-browser compatibility.</li>
+            <li>Implement technical SEO optimizations and translate design mockups into functional, scalable components.</li>
+            <li>Manage CMS integrations and coordinate with cross-functional teams to ship client deliverables on schedule.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__marker" aria-hidden="true"></div>
+        <div class="timeline__content">
+          <div class="timeline__head">
+            <h3>Open Source Contributor <span class="mono timeline__date">May 2026 — Present</span></h3>
+            <p class="timeline__org">GirlScript Summer of Code (GSSoC) · Remote</p>
+          </div>
+          <ul>
+            <li>Collaborate with a global community of developers to build, test, and optimize open-source repositories.</li>
+            <li>Use core Git/GitHub workflows to manage branches, debug active codebases, and submit clean pull requests.</li>
+            <li>Work alongside mentors and peers reviewing code for scalability, performance, and project standards.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section class="section" id="projects">
+    <p class="section__eyebrow mono">$ ls ./projects</p>
+    <h2 class="section__title">Things I've built.</h2>
+    <div class="projects">
+
+      <article class="project">
+        <div class="project__head">
+          <h3>CodeTrack++</h3>
+          <span class="mono project__date">Jun 2026</span>
+        </div>
+        <p class="project__desc">
+          A full-stack competitive programming platform with a Monaco Editor browser IDE,
+          personalized problem lists, and a sandboxed remote code execution engine for
+          untrusted JS / C++ submissions.
+        </p>
+        <ul class="project__points">
+          <li>Redis Sorted Sets caching layer cut leaderboard query time from ~320ms to &lt;50ms (~85% reduction).</li>
+          <li>Sandboxed execution engine via Node.js child processes against hidden test cases.</li>
+          <li>Secure JWT authentication across the platform.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">Express</span>
+          <span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">Monaco Editor</span>
+        </div>
+        <div class="project__links">
+          <a href="https://github.com/DeepikaKashyapp/codetrack" target="_blank" rel="noopener noreferrer">Code ↗</a>
+          <a href="https://codetrack-three.vercel.app/" target="_blank" rel="noopener noreferrer">Live ↗</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project__head">
+          <h3>Multimodal Product Inconsistency Detector</h3>
+          <span class="mono project__date">May 2026</span>
+        </div>
+        <p class="project__desc">
+          An AI catalog-auditing tool that uses OpenAI CLIP's dual-encoder to catch
+          image–title mismatches in e-commerce listings.
+        </p>
+        <ul class="project__points">
+          <li>Projects listings into a shared 512-d embedding space; cosine similarity with F1-optimised thresholding.</li>
+          <li>~78% accuracy and 0.76 ROC-AUC on a 500-sample labeled test set.</li>
+          <li>Deployed as a live Streamlit app, tuned for low false-negative auditing.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">CLIP (ViT-B/32)</span><span class="tag">PyTorch</span>
+          <span class="tag">Streamlit</span><span class="tag">Scikit-learn</span>
+        </div>
+        <div class="project__links">
+          <a href="https://github.com/DeepikaKashyapp/multimodal-product-inconsistency-detector" target="_blank" rel="noopener noreferrer">Code ↗</a>
+          <a href="https://multimodal-inconsistency-detector.streamlit.app/" target="_blank" rel="noopener noreferrer">Live ↗</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project__head">
+          <h3>Zero-Waste Vision</h3>
+          <span class="mono project__date">May 2026</span>
+        </div>
+        <p class="project__desc">
+          A real-time waste-sorting classification pipeline pairing YOLOv8n with MobileNet V2,
+          built for low-latency inference on modest hardware.
+        </p>
+        <ul class="project__points">
+          <li>162.1ms/frame (~6 FPS) CPU inference speed.</li>
+          <li>Custom dictionary-mapping algorithm linking 80+ object classes to disposal protocols and carbon-savings estimates.</li>
+          <li>Flask REST API deployed to a React frontend for real-time inference.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">YOLOv8</span><span class="tag">MobileNet V2</span>
+          <span class="tag">Flask</span><span class="tag">React</span>
+        </div>
+        <div class="project__links">
+          <a href="https://github.com/DeepikaKashyapp/ai-waste-classifier" target="_blank" rel="noopener noreferrer">Code ↗</a>
+          <a href="https://ephemeral-duckanoo-f4aaee.netlify.app/" target="_blank" rel="noopener noreferrer">Live ↗</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project__head">
+          <h3>EchoChat — Offline SOS Mesh Network</h3>
+          <span class="mono project__date">Jan 2026 · Team</span>
+        </div>
+        <p class="project__desc">
+          A 100% offline Android mesh network for emergency communication when the internet
+          isn't an option.
+        </p>
+        <ul class="project__points">
+          <li>BLE + Wi-Fi Direct multi-hop delivery across a 5-node chain, ~500m, zero internet dependency.</li>
+          <li>Custom Priority Triage Protocol (Levels 1–5) purges routine traffic at 80% buffer congestion for zero-latency SOS delivery.</li>
+          <li>libsodium end-to-end encryption with AODV routing, RSSI-based next-hop selection, TTL=5 loop prevention.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Android (Kotlin)</span><span class="tag">Bluetooth LE</span><span class="tag">Wi-Fi Direct</span>
+          <span class="tag">Nearby Connections API</span><span class="tag">SQLite</span><span class="tag">libsodium</span>
+        </div>
+        <div class="project__links">
+          <a href="https://github.com/DeepikaKashyapp/Mesh-Rescue-Net" target="_blank" rel="noopener noreferrer">Code ↗</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project__head">
+          <h3>Chaitanya — AI Mental Health Support System</h3>
+          <span class="mono project__date">Sep 2025 · Team</span>
+        </div>
+        <p class="project__desc">
+          An AI-driven mental health support prototype for students, built around anonymous
+          counseling and intelligent mood tracking.
+        </p>
+        <ul class="project__points">
+          <li>Integrated the Google Gemini API for conversational support and mood tracking.</li>
+          <li>Culturally resonant Hindi-first branding to optimize adoption across rural and semi-urban demographics.</li>
+        </ul>
+        <div class="tags">
+          <span class="tag">React.js</span><span class="tag">Node.js</span><span class="tag">Google Gemini AI</span>
+        </div>
+        <div class="project__links">
+          <a href="https://github.com/DeepikaKashyapp/amigo" target="_blank" rel="noopener noreferrer">Code ↗</a>
+          <a href="https://amigo-omega-one.vercel.app/" target="_blank" rel="noopener noreferrer">Live ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section class="section section--tight" id="achievements">
+    <p class="section__eyebrow mono">$ cat achievements.log</p>
+    <div class="achievements">
+      <div class="achievement">
+        <span class="mono achievement__tag">hackathons</span>
+        <p>Top 3 finalist (of 50+ teams) at HackShodh, Jan 2026 · 3rd place, The Responsive Rumble UI/UX Challenge, Mar 2026.</p>
+      </div>
+      <div class="achievement">
+        <span class="mono achievement__tag">open source</span>
+        <p>Active GSSoC 2026 contributor — frontend PRs, code reviews, and issue resolution across open-source repositories.</p>
+      </div>
+      <div class="achievement">
+        <span class="mono achievement__tag">exhibitions</span>
+        <p>Showcased the AI waste-classification project at Bharati Vidyapeeth's AI Solution Expo; advanced to the mentoring round at SnowHackIPEC.</p>
+      </div>
+      <div class="achievement">
+        <span class="mono achievement__tag">dsa</span>
+        <p>Consistently solving problems on LeetCode using C++.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <p class="section__eyebrow mono">$ ./connect --with=deepika</p>
+    <h2 class="section__title">Let's build something.</h2>
+    <p class="contact__desc">
+      Open to Software Engineering internships, open-source collaboration, and AI/ML work.
+      The fastest way to reach me is email.
+    </p>
+    <div class="contact__links">
+      <a class="contact__link" href="mailto:deepikashyap85@gmail.com">
+        <span class="contact__label mono">email</span>
+        <span class="contact__value">deepikashyap85@gmail.com</span>
+      </a>
+      <a class="contact__link" href="https://www.linkedin.com/in/deepika-kashyap-2270bb36a/" target="_blank" rel="noopener noreferrer">
+        <span class="contact__label mono">linkedin</span>
+        <span class="contact__value">/in/deepika-kashyap</span>
+      </a>
+      <a class="contact__link" href="https://github.com/DeepikaKashyapp" target="_blank" rel="noopener noreferrer">
+        <span class="contact__label mono">github</span>
+        <span class="contact__value">@DeepikaKashyapp</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p class="mono">© <span id="year"></span> Deepika Kashyap — built with HTML, CSS &amp; JS.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
