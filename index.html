@@ -108,7 +108,7 @@
         <mark class="hl hl--orange">hardware</mark>, or the
         <mark class="hl hl--pink">traffic</mark> doesn't.
       </p>
-      <p class="hero__meta mono" data-intro>Full-stack &amp; AI/ML developer · B.Tech ECE '28 · Kanpur, India</p>
+      <p class="hero__meta mono" data-intro>Backend-focused full-stack &amp; AI/ML developer · B.Tech ECE '28 · Kanpur, India</p>
       <div class="hero__cta" data-intro>
         <a href="#work" class="btn btn--ink" data-magnetic>See my work <span aria-hidden="true">↓</span></a>
         <a href="#playground" class="btn btn--ghost" data-magnetic>Play Deploy Dash <span aria-hidden="true">🎮</span></a>
@@ -236,8 +236,8 @@
         <span class="stat__label">faster leaderboard queries in CodeTrack++</span>
       </div>
       <div class="stat" style="--c:var(--pink)" data-reveal>
-        <span class="stat__num"><span data-count="100">100</span>+</span>
-        <span class="stat__label">LeetCode problems solved in C++</span>
+        <span class="stat__num"><span data-count="200">200</span>+</span>
+        <span class="stat__label">DSA problems solved in C++ (LeetCode &amp; Codeforces)</span>
       </div>
       <div class="stat" style="--c:var(--mint)" data-reveal>
         <span class="stat__num"><span data-count="2">2</span></span>
@@ -281,8 +281,8 @@
           <p class="pcard__summary">A competitive-programming platform with a browser IDE, personalised problem lists and a sandboxed code runner.</p>
           <dl class="pcard__case">
             <div><dt>Problem</dt><dd>Leaderboard queries took ~320ms, and user-submitted JS/C++ can't be trusted to run on a server.</dd></div>
-            <div><dt>Built</dt><dd>A Monaco Editor IDE in React, a Node.js engine that runs submissions in sandboxed child processes against hidden tests, Redis Sorted Sets for ranking, and JWT auth.</dd></div>
-            <div><dt>Result</dt><dd>Leaderboard queries under 50ms, about 85% faster.</dd></div>
+            <div><dt>Built</dt><dd>A Monaco Editor IDE in React with JWT auth, a sandboxed Node.js child-process engine that safely runs untrusted JS/C++ against hidden tests, and a Redis Sorted Sets cache in front of PostgreSQL for the leaderboard.</dd></div>
+            <div><dt>Result</dt><dd>Leaderboard queries from ~320ms to under 50ms (about 85% faster) in local load tests.</dd></div>
           </dl>
           <ul class="tags" aria-label="Tech stack"><li>React</li><li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>Redis</li><li>Monaco</li></ul>
           <div class="pcard__links">
@@ -320,8 +320,8 @@
           <p class="pcard__summary">An AI tool that audits e-commerce catalogs for listings where the photo and the title don't match.</p>
           <dl class="pcard__case">
             <div><dt>Problem</dt><dd>Mismatched images and titles confuse shoppers, and checking listings by hand doesn't scale.</dd></div>
-            <div><dt>Built</dt><dd>OpenAI CLIP (ViT-B/32) maps images and titles into one 512-d space; cosine similarity with an F1-optimised threshold flags mismatches. Deployed on Streamlit.</dd></div>
-            <div><dt>Result</dt><dd>~78% accuracy and 0.76 ROC-AUC on a 500-sample labelled test set, tuned to miss as few mismatches as possible.</dd></div>
+            <div><dt>Built</dt><dd>OpenAI CLIP (ViT-B/32) maps images and titles into one 512-d space; cosine-similarity thresholds tuned by grid search flag mismatches. Deployed on Streamlit.</dd></div>
+            <div><dt>Result</dt><dd>~78% accuracy and 0.76 ROC-AUC on a 500-sample test set, tuned for zero-miss auditing.</dd></div>
           </dl>
           <ul class="tags" aria-label="Tech stack"><li>Python</li><li>CLIP</li><li>PyTorch</li><li>Scikit-learn</li><li>Streamlit</li></ul>
           <div class="pcard__links">
@@ -381,13 +381,13 @@
           </div>
         </div>
         <div class="pcard__body">
-          <p class="pcard__meta mono"><span class="pcard__idx">04</span> Jan 2026 · Team</p>
+          <p class="pcard__meta mono"><span class="pcard__idx">04</span> Jan 2026 · Team of 3</p>
           <h3 class="pcard__title">EchoChat: Offline SOS Mesh Network</h3>
           <p class="pcard__summary">An Android mesh network for emergency messages when there's no internet at all.</p>
           <dl class="pcard__case">
             <div><dt>Problem</dt><dd>In a disaster the internet is often the first thing to go, exactly when people need to send an SOS.</dd></div>
-            <div><dt>Built</dt><dd>Bluetooth LE + Wi-Fi Direct multi-hop delivery with AODV routing, RSSI-based next hops, TTL=5 loop prevention, and a Priority Triage Protocol that drops routine traffic at 80% buffer so SOS gets through.</dd></div>
-            <div><dt>My part</dt><dd>The frontend and product implementation, and the encryption &amp; security layer: libsodium end-to-end encryption for messages and user data.</dd></div>
+            <div><dt>Built</dt><dd>Multi-hop delivery over Bluetooth LE + Wi-Fi Direct, with a min-heap priority queue that triages messages (Levels 1–5) so critical alerts go first, RSSI-based next hops and TTL-bounded loop prevention.</dd></div>
+            <div><dt>My part</dt><dd>The frontend and product implementation, AODV graph routing implemented from scratch in Kotlin, and the security layer: libsodium end-to-end encryption for messages and user data.</dd></div>
             <div><dt>Result</dt><dd>Delivery across a 5-node chain (~500m) with zero internet.</dd></div>
           </dl>
           <ul class="tags" aria-label="Tech stack"><li>Kotlin</li><li>Bluetooth LE</li><li>Wi-Fi Direct</li><li>Nearby Connections</li><li>SQLite</li><li>libsodium</li></ul>
@@ -445,6 +445,8 @@
         <p class="commit__org">Irafactory Media Agency · Bengaluru, India (Remote)</p>
         <ul class="commit__points">
           <li>Turned Figma designs into responsive, production websites with React, HTML, CSS and JavaScript, plus WordPress and Webflow.</li>
+          <li>Integrated REST APIs for dynamic content and form submissions, with validated JSON payloads and graceful fallbacks for timeouts and 4xx/5xx errors.</li>
+          <li>Defined content schemas in a headless CMS and managed environment config and API keys across staging and production.</li>
           <li>Improved SEO and Lighthouse performance on client sites.</li>
           <li>Shipped client sites including Gharbar Boutique Stay &amp; Cafe and The Himalayan Chester.</li>
         </ul>
@@ -452,7 +454,7 @@
           <a href="https://gharbarcafe.com/" target="_blank" rel="noopener noreferrer" data-cursor="Visit ↗">gharbarcafe.com ↗</a>
           <a href="https://www.thehimalayanchester.com/" target="_blank" rel="noopener noreferrer" data-cursor="Visit ↗">thehimalayanchester.com ↗</a>
         </div>
-        <ul class="tags" aria-label="Tools used"><li>React</li><li>WordPress</li><li>Webflow</li><li>Figma</li><li>SEO</li><li>Lighthouse</li></ul>
+        <ul class="tags" aria-label="Tools used"><li>React</li><li>REST APIs</li><li>Headless CMS</li><li>WordPress</li><li>Webflow</li><li>Figma</li><li>SEO</li><li>Lighthouse</li></ul>
       </li>
       <li class="commit" style="--c:var(--mint)" data-reveal>
         <span class="commit__dot" aria-hidden="true"></span>
@@ -493,7 +495,7 @@
       <div class="editor__pane" role="tabpanel" id="pane-lang" aria-labelledby="tab-lang">
 <pre class="code mono"><code><span class="t-com">// the languages I write most</span>
 <span class="t-kw">export const</span> <span class="t-fn">languages</span> = [
-  <span class="t-str s" tabindex="0" data-used="CLIP detector, Zero-Waste Vision">"Python"</span>, <span class="t-str s" tabindex="0" data-used="DSA practice — 100+ LeetCode problems">"C++"</span>, <span class="t-str s" tabindex="0" data-used="CodeTrack++, client sites at Irafactory">"JavaScript"</span>,
+  <span class="t-str s" tabindex="0" data-used="CLIP detector, Zero-Waste Vision">"Python"</span>, <span class="t-str s" tabindex="0" data-used="DSA — 200+ problems on LeetCode &amp; Codeforces">"C++"</span>, <span class="t-str s" tabindex="0" data-used="CodeTrack++, client sites at Irafactory">"JavaScript"</span>,
   <span class="t-str s" tabindex="0">"TypeScript"</span>, <span class="t-str s" tabindex="0">"Java"</span>, <span class="t-str s" tabindex="0" data-used="CodeTrack++ (PostgreSQL)">"SQL"</span>, <span class="t-str s" tabindex="0" data-used="EchoChat (Android)">"Kotlin"</span>,
 ] <span class="t-kw">as const</span>;</code></pre>
       </div>
@@ -516,7 +518,7 @@
 <pre class="code mono"><code><span class="t-com">// servers, data and auth</span>
 <span class="t-kw">const</span> <span class="t-fn">backend</span> = {
   <span class="t-key">runtime</span>: [<span class="t-str s" tabindex="0" data-used="CodeTrack++, Chaitanya">"Node.js"</span>, <span class="t-str s" tabindex="0" data-used="CodeTrack++">"Express"</span>, <span class="t-str s" tabindex="0" data-used="Zero-Waste Vision">"Flask"</span>],
-  <span class="t-key">apis</span>: [<span class="t-str s" tabindex="0" data-used="Zero-Waste Vision">"REST"</span>, <span class="t-str s" tabindex="0" data-used="CodeTrack++">"JWT auth"</span>],
+  <span class="t-key">apis</span>: [<span class="t-str s" tabindex="0" data-used="Zero-Waste Vision, Irafactory client sites">"REST"</span>, <span class="t-str s" tabindex="0" data-used="CodeTrack++">"JWT auth"</span>],
   <span class="t-key">data</span>: [<span class="t-str s" tabindex="0" data-used="CodeTrack++">"PostgreSQL"</span>, <span class="t-str s" tabindex="0">"MySQL"</span>, <span class="t-str s" tabindex="0" data-used="EchoChat">"SQLite"</span>, <span class="t-str s" tabindex="0">"Supabase"</span>],
   <span class="t-key">cache</span>: <span class="t-str s" tabindex="0" data-used="CodeTrack++ — 85% faster leaderboard">"Redis"</span>,
   <span class="t-key">security</span>: <span class="t-str s" tabindex="0" data-used="EchoChat — end-to-end encryption">"libsodium"</span>,
@@ -579,12 +581,17 @@
       <article class="win" style="--c:var(--yellow);--on-c:var(--on-yellow)" data-reveal>
         <p class="win__tag mono">hackathon · Jan 2026</p>
         <p class="win__big">Top 3</p>
-        <p>Finalist out of 50+ teams at HackShodh.</p>
+        <p>Team &amp; pitch lead for a top-3 finish out of 50+ teams at HackShodh.</p>
       </article>
       <article class="win" style="--c:var(--pink);--on-c:var(--on-pink)" data-reveal>
         <p class="win__tag mono">ui/ux · Mar 2026</p>
         <p class="win__big">3rd place</p>
         <p>The Responsive Rumble UI/UX Challenge.</p>
+      </article>
+      <article class="win" style="--c:var(--orange);--on-c:var(--on-orange)" data-reveal>
+        <p class="win__tag mono">smart india hackathon</p>
+        <p class="win__big">Semifinalist</p>
+        <p>Cleared the university-level round of SIH.</p>
       </article>
       <article class="win" style="--c:var(--mint);--on-c:var(--on-mint)" data-reveal>
         <p class="win__tag mono">exhibitions</p>
@@ -593,8 +600,8 @@
       </article>
       <article class="win" style="--c:var(--blue);--on-c:var(--on-blue)" data-reveal>
         <p class="win__tag mono">dsa</p>
-        <p class="win__big">100+</p>
-        <p>LeetCode problems solved in C++, plus more on other platforms.</p>
+        <p class="win__big">200+</p>
+        <p>DSA problems solved in C++, mostly on LeetCode and Codeforces.</p>
       </article>
     </div>
   </section>

@@ -1449,7 +1449,7 @@ html:not(.has-gsap) .marquee__track { animation: marquee 40s linear infinite; }
    ========================================================= */
 .wins {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 20px;
 }
 .win {
@@ -1471,8 +1471,14 @@ html:not(.has-gsap) .marquee__track { animation: marquee 40s linear infinite; }
 .win__big { font-family: var(--font-display); font-weight: 800; font-size: clamp(2.2rem, 3.6vw, 3rem); line-height: 1; letter-spacing: -0.04em; }
 .win p:last-child { font-size: 0.95rem; }
 
-@media (max-width: 960px) { .wins { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 520px) { .wins { grid-template-columns: 1fr; } .win, .win:nth-child(even) { transform: none; } }
+.win { grid-column: span 2; }
+.win:nth-child(n+4) { grid-column: span 3; }
+@media (max-width: 760px) {
+  .wins { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .win, .win:nth-child(n+4) { grid-column: auto; }
+  .win:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) { .wins { grid-template-columns: 1fr; } .win:last-child { grid-column: auto; } .win, .win:nth-child(even) { transform: none; } }
 
 /* =========================================================
    NOW

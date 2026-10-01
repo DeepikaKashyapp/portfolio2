@@ -47,7 +47,7 @@
     whoami: () =>
       print(
         "Deepika Kashyap. B.Tech ECE @ CSJM University, Kanpur ('24–'28).\n" +
-          "Full-stack & AI/ML developer who builds software that keeps working\n" +
+          "Backend-focused full-stack & AI/ML developer. I build software that keeps working\n" +
           "when the network, the hardware, or the traffic doesn't."
       ),
     projects: () => {
@@ -56,7 +56,7 @@
           '<span class="c-num">01</span> CodeTrack++        leaderboard ~320ms → &lt;50ms with Redis',
           '<span class="c-num">02</span> CLIP detector      0.76 ROC-AUC on image–title mismatches',
           '<span class="c-num">03</span> Zero-Waste Vision  waste sorting at ~6 FPS on CPU',
-          '<span class="c-num">04</span> EchoChat           offline SOS mesh, e2e encrypted (team)',
+          '<span class="c-num">04</span> EchoChat           offline SOS mesh, AODV + e2e encryption (team)',
           '<span class="c-num">05</span> Chaitanya          Hindi-first mental-health support (team)',
           '<span class="c-dim">→ scrolling you to the work section…</span>',
         ].join("\n")
@@ -66,7 +66,8 @@
     experience: () => {
       print(
         "Junior Web Developer Intern · Irafactory Media Agency · Jun–Aug 2026\n" +
-          "  Figma → React/WordPress/Webflow sites, SEO + Lighthouse work.\n" +
+          "  Figma → React/WordPress/Webflow sites, REST API integration,\n" +
+          "  headless CMS schemas, SEO + Lighthouse work.\n" +
           "Open Source Contributor · GSSoC 2026"
       );
       setTimeout(() => scrollToId("experience"), 700);
@@ -82,7 +83,7 @@
     now: () =>
       print(
         "• building projects across web dev, AI/ML and DSA\n" +
-          "• practising DSA consistently (100+ LeetCode so far)\n" +
+          "• practising DSA consistently (200+ problems so far)\n" +
           "• exploring LLMs and AI-powered apps\n" +
           "• learning system design and better engineering practices"
       ),
