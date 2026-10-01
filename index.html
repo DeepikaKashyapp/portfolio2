@@ -2,683 +2,672 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Deepika Kashyap — Full-Stack Developer & AI/ML Engineer</title>
-<meta name="description" content="Portfolio of Deepika Kashyap — Full-Stack Developer & AI/ML Engineer. B.Tech ECE student building full-stack apps, computer vision systems, and off-grid networking tools." />
-<meta name="theme-color" content="#07090a" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Deepika Kashyap — Full-Stack & AI/ML Developer</title>
+<meta name="description" content="Deepika Kashyap builds software that keeps working when the network, the hardware, or the traffic doesn't. Full-stack & AI/ML developer, B.Tech ECE '28, Kanpur, India." />
+<meta name="theme-color" content="#F6F7FB" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0F1020" media="(prefers-color-scheme: dark)" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Deepika Kashyap — Full-Stack Developer & AI/ML Engineer" />
-<meta property="og:description" content="Full-stack apps, computer vision systems, and offline mesh networks — built by an ECE student who thinks about software like circuits." />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Deepika Kashyap — Full-Stack & AI/ML Developer" />
+<meta property="og:description" content="Offline mesh networks, CLIP-powered catalog audits, 50ms leaderboards — and a tiny game you can play." />
+<meta property="og:image" content="og.png" />
+<meta name="twitter:card" content="summary_large_image" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2307090a'/%3E%3Cpath d='M4 17h6l2-6 3 12 3-14 2 8h8' fill='none' stroke='%233dffa0' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%231B1B3A'/%3E%3Cpath d='M9 11l-4 5 4 5M23 11l4 5-4 5' fill='none' stroke='%23FFC93C' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M18 9l-4 14' stroke='%23FF5FA2' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E">
 
 <script>
-  // Progressive enhancement flags. If the main script never finishes,
-  // the failsafe class hides the preloader so content is never locked.
-  document.documentElement.classList.replace("no-js", "js");
-  setTimeout(function () { document.documentElement.classList.add("is-failsafe"); }, 6000);
+  // Theme before first paint, plus progressive-enhancement flags.
+  (function () {
+    var root = document.documentElement;
+    root.classList.remove("no-js");
+    root.classList.add("js");
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") root.setAttribute("data-theme", t);
+    } catch (e) {}
+    setTimeout(function () { root.classList.add("is-failsafe"); }, 6000);
+  })();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@400..600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ===== PRELOADER ===== -->
-<div class="preloader" id="preloader" aria-hidden="true">
-  <div class="preloader__row mono">
-    <span>signal_source</span>
-    <span>calibrating oscilloscope…</span>
+<!-- ===== BOOT INTRO ===== -->
+<div class="boot" id="boot" aria-hidden="true">
+  <div class="boot__term">
+    <div class="boot__bar"><i></i><i></i><i></i><span>deepika@portfolio — zsh</span></div>
+    <pre class="boot__log" id="bootLog"></pre>
   </div>
-  <div class="preloader__count">
-    <span id="loaderCount">000</span><span class="preloader__unit mono">%</span>
-  </div>
-  <svg class="preloader__wave" viewBox="0 0 1000 120" preserveAspectRatio="none">
-    <path id="loaderWave" pathLength="1"
-      d="M0,60 L120,60 L140,20 L160,100 L180,60 L300,60 L320,35 L340,85 L360,60 L480,60 L500,8 L520,112 L540,60 L660,60 L680,30 L700,90 L720,60 L840,60 L860,24 L880,96 L900,60 L1000,60" />
-  </svg>
-  <div class="preloader__row mono">
-    <span>Deepika Kashyap ©</span>
-    <span>portfolio — v2</span>
-  </div>
+  <p class="boot__skip">click or press any key to skip</p>
+  <div class="boot__stripes"><i></i><i></i><i></i><i></i><i></i></div>
 </div>
 
-<!-- ===== GLOBAL CHROME ===== -->
-<div class="grain" aria-hidden="true"></div>
+<!-- ===== CHROME ===== -->
 <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+<canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+<div class="cursor" id="cursor" aria-hidden="true"><div class="cursor__ring"><span id="cursorLabel"></span></div><div class="cursor__dot"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<div class="cursor" id="cursor" aria-hidden="true">
-  <div class="cursor__ring"><span class="cursor__label" id="cursorLabel"></span></div>
-  <div class="cursor__dot"></div>
-</div>
-
-<!-- ===== NAV ===== -->
 <header class="nav" id="nav">
   <a href="#top" class="nav__brand" aria-label="Deepika Kashyap — back to top">
-    <span class="nav__dot" aria-hidden="true"></span><span class="roll">~/deepika</span>
+    <span class="nav__logo" aria-hidden="true">&lt;dk/&gt;</span><span class="nav__name">deepika</span>
   </a>
-
   <nav class="nav__links" aria-label="Primary">
-    <a href="#about"><span class="nav__idx mono">01</span><span class="roll">about</span></a>
-    <a href="#projects"><span class="nav__idx mono">02</span><span class="roll">work</span></a>
-    <a href="#experience"><span class="nav__idx mono">03</span><span class="roll">experience</span></a>
-    <a href="#skills"><span class="nav__idx mono">04</span><span class="roll">stack</span></a>
-    <a href="#contact"><span class="nav__idx mono">05</span><span class="roll">contact</span></a>
+    <a href="#about">about</a>
+    <a href="#work">work</a>
+    <a href="#experience">experience</a>
+    <a href="#skills">skills</a>
+    <a href="#playground">playground</a>
+    <a href="#contact">contact</a>
   </nav>
-
   <div class="nav__right">
-    <span class="nav__time mono" aria-label="Local time in Kanpur"><span class="js-time">--:--</span> IST</span>
-    <a class="nav__cta" href="mailto:deepikashyap85@gmail.com" data-magnetic="0.3"><span class="roll">say hello</span></a>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark theme">
+      <svg class="theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg>
+      <svg class="theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+    </button>
+    <a class="nav__cta" href="#contact" data-wave>Say hello 👋</a>
     <button class="nav__menu" id="menuBtn" type="button" aria-expanded="false" aria-controls="menu">
-      <span class="nav__menu-label mono">menu</span>
+      <span class="nav__menu-label">menu</span>
       <span class="nav__menu-icon" aria-hidden="true"><span></span><span></span></span>
     </button>
   </div>
 </header>
 
-<!-- ===== FULLSCREEN MENU (mobile) ===== -->
 <div class="menu" id="menu" aria-label="Site menu" inert>
   <nav class="menu__links" aria-label="Mobile">
-    <a href="#about" style="--i:0"><span class="mono">01</span>About</a>
-    <a href="#projects" style="--i:1"><span class="mono">02</span>Work</a>
-    <a href="#experience" style="--i:2"><span class="mono">03</span>Experience</a>
-    <a href="#skills" style="--i:3"><span class="mono">04</span>Stack</a>
-    <a href="#contact" style="--i:4"><span class="mono">05</span>Contact</a>
+    <a href="#about" style="--i:0;--c:var(--pink)">About</a>
+    <a href="#work" style="--i:1;--c:var(--blue)">Work</a>
+    <a href="#experience" style="--i:2;--c:var(--orange)">Experience</a>
+    <a href="#skills" style="--i:3;--c:var(--mint)">Skills</a>
+    <a href="#playground" style="--i:4;--c:var(--purple)">Playground</a>
+    <a href="#contact" style="--i:5;--c:var(--yellow)">Contact</a>
   </nav>
-  <div class="menu__foot mono">
-    <a href="mailto:deepikashyap85@gmail.com">deepikashyap85@gmail.com</a>
-    <div>
-      <a href="https://github.com/DeepikaKashyapp" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/deepika-kashyap-2270bb36a/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-    </div>
-  </div>
+  <p class="menu__foot mono">deepikashyap85@gmail.com</p>
 </div>
 
 <main id="main" tabindex="-1">
 
   <!-- ===== HERO ===== -->
-  <section class="hero" id="top">
-    <canvas class="hero__canvas" id="signalField" aria-hidden="true"></canvas>
-
-    <div class="hero__meta mono" data-intro>
-      <span>// signal_source: ECE → software</span>
-      <span class="hero__meta-mid">Kanpur, IN — 26.45°N 80.33°E</span>
-      <span>Portfolio © <span class="js-year">2026</span></span>
-    </div>
-
-    <h1 class="hero__title" aria-label="Deepika Kashyap">
-      <span class="hero__line" data-split-chars aria-hidden="true">Deepika</span>
-      <span class="hero__line hero__line--2" aria-hidden="true">
-        <span class="hero__tag serif" data-intro>full-stack &amp;<br>ai/ml engineer</span>
-        <span data-split-chars>Kashyap</span>
-      </span>
-    </h1>
-
-    <div class="hero__bottom">
-      <p class="hero__desc" data-intro>
-        3rd-year ECE student turning hardware thinking into clean,
-        production-shaped software — from browser IDEs to offline mesh networks.
+  <section class="hero" id="top" data-accent="pink">
+    <div class="hero__text">
+      <p class="chip chip--status" data-intro><span class="dot" aria-hidden="true"></span>Open to software engineering internships</p>
+      <h1 class="hero__name" aria-label="Hi, I'm Deepika.">
+        <span class="hero__hi" aria-hidden="true" data-letters>Hi, I'm</span>
+        <span class="hero__first" aria-hidden="true" data-letters>Deepika.</span>
+      </h1>
+      <p class="hero__lede" data-intro>
+        I build software that keeps working when the
+        <mark class="hl hl--blue">network</mark>, the
+        <mark class="hl hl--orange">hardware</mark>, or the
+        <mark class="hl hl--pink">traffic</mark> doesn't.
       </p>
-      <p class="hero__role mono" data-intro>
-        <span class="hero__prompt" aria-hidden="true">&gt;</span>
-        <span id="role">Full-Stack Developer</span><span class="caret" aria-hidden="true"></span>
-      </p>
+      <p class="hero__meta mono" data-intro>Full-stack &amp; AI/ML developer · B.Tech ECE '28 · Kanpur, India</p>
       <div class="hero__cta" data-intro>
-        <a href="#projects" class="btn btn--primary" data-magnetic><span class="roll">View work</span><span aria-hidden="true">↘</span></a>
-        <a href="#contact" class="btn btn--ghost" data-magnetic><span class="roll">Get in touch</span></a>
+        <a href="#work" class="btn btn--ink" data-magnetic>See my work <span aria-hidden="true">↓</span></a>
+        <a href="#playground" class="btn btn--ghost" data-magnetic>Play Deploy Dash <span aria-hidden="true">🎮</span></a>
       </div>
     </div>
 
-    <a href="#about" class="hero__scroll mono" data-intro aria-label="Scroll to about section">
-      <span>scroll</span><span class="hero__scroll-line" aria-hidden="true"></span>
-    </a>
+    <div class="hero__stage" id="stage">
+      <div class="blob" aria-hidden="true"></div>
+      <div class="avatar" id="avatar" role="img" aria-label="A stylized 3D avatar of Deepika: long dark wavy hair with a centre parting, a warm smile, a black blazer over a white shirt, sitting behind a sticker-covered laptop.">
+        <!-- 2D fallback, replaced by the 3D avatar when WebGL is available -->
+        <svg class="avatar__svg" viewBox="0 0 400 440" aria-hidden="true">
+          <path class="av-hair" d="M200 40c-88 0-128 64-128 140 0 40-14 80-30 120-12 30-6 70 6 100h304c12-30 18-70 6-100-16-40-30-80-30-120 0-76-40-140-128-140z"/>
+          <path class="av-blazer" d="M70 440c4-70 40-110 90-122l40 40 40-40c50 12 86 52 90 122z"/>
+          <path class="av-shirt" d="M160 318l40 82 40-82-22-6-18 30-18-30z"/>
+          <rect class="av-skin" x="176" y="270" width="48" height="50" rx="20"/>
+          <ellipse class="av-skin" cx="200" cy="190" rx="78" ry="92"/>
+          <path class="av-hair" d="M200 92c-40 0-76 22-82 80 20-30 52-58 82-66 30 8 62 36 82 66-6-58-42-80-82-80z"/>
+          <path class="av-hair" d="M118 150c-14 40-12 120-40 190l30 6c16-60 14-140 22-180zM282 150c14 40 12 120 40 190l-30 6c-16-60-14-140-22-180z"/>
+          <ellipse class="av-eye" cx="172" cy="192" rx="9" ry="11"/><ellipse class="av-eye" cx="228" cy="192" rx="9" ry="11"/>
+          <circle class="av-shine" cx="175" cy="188" r="3"/><circle class="av-shine" cx="231" cy="188" r="3"/>
+          <path class="av-brow" d="M156 170q16-8 30 0M214 170q14-8 30 0"/>
+          <ellipse class="av-cheek" cx="152" cy="222" rx="14" ry="8"/><ellipse class="av-cheek" cx="248" cy="222" rx="14" ry="8"/>
+          <path class="av-smile" d="M180 238q20 16 40 0"/>
+        </svg>
+      </div>
+      <p class="avatar__bubble" id="bubble" aria-live="polite"></p>
+      <p class="avatar__hint mono" aria-hidden="true">click me ✨</p>
+
+      <ul class="stickers" aria-label="Stickers (drag them around)">
+        <li class="sticker" style="--c:var(--yellow);--r:-8deg;--x:-4%;--y:16%">it works on my machine ✓</li>
+        <li class="sticker" style="--c:var(--mint);--r:6deg;--x:68%;--y:10%">0 bars needed 📡</li>
+        <li class="sticker" style="--c:var(--pink);--r:-4deg;--x:76%;--y:54%">git push 🚀</li>
+        <li class="sticker" style="--c:var(--blue);--r:7deg;--x:-6%;--y:56%">&lt;/&gt; + 💃</li>
+        <li class="sticker" style="--c:var(--orange);--r:-10deg;--x:-2%;--y:88%">chai ☕ + coffee ☕</li>
+      </ul>
+    </div>
   </section>
 
   <!-- ===== MARQUEE ===== -->
-  <div class="marquee" aria-hidden="true" data-marquee="1">
+  <div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee" data-marquee>
     <div class="marquee__track">
       <div class="marquee__group">
-        <span>Full-Stack Development</span><i>✳</i>
-        <span class="serif">AI / ML</span><i>✳</i>
-        <span>Computer Vision</span><i>✳</i>
-        <span class="serif">Offline Mesh Networks</span><i>✳</i>
-        <span>Systems that stay up</span><i>✳</i>
+        <span style="--c:var(--pink)">Full-stack</span><i>✦</i>
+        <span style="--c:var(--blue)">AI / ML</span><i>✦</i>
+        <span style="--c:var(--mint)">Computer vision</span><i>✦</i>
+        <span style="--c:var(--orange)">Offline mesh networks</span><i>✦</i>
+        <span style="--c:var(--purple)">Figma → website</span><i>✦</i>
+        <span style="--c:var(--yellow)">Hackathons</span><i>✦</i>
+        <span style="--c:var(--pink)">DSA in C++</span><i>✦</i>
       </div>
       <div class="marquee__group">
-        <span>Full-Stack Development</span><i>✳</i>
-        <span class="serif">AI / ML</span><i>✳</i>
-        <span>Computer Vision</span><i>✳</i>
-        <span class="serif">Offline Mesh Networks</span><i>✳</i>
-        <span>Systems that stay up</span><i>✳</i>
+        <span style="--c:var(--pink)">Full-stack</span><i>✦</i>
+        <span style="--c:var(--blue)">AI / ML</span><i>✦</i>
+        <span style="--c:var(--mint)">Computer vision</span><i>✦</i>
+        <span style="--c:var(--orange)">Offline mesh networks</span><i>✦</i>
+        <span style="--c:var(--purple)">Figma → website</span><i>✦</i>
+        <span style="--c:var(--yellow)">Hackathons</span><i>✦</i>
+        <span style="--c:var(--pink)">DSA in C++</span><i>✦</i>
       </div>
     </div>
   </div>
+  </div>
 
   <!-- ===== ABOUT ===== -->
-  <section class="section about" id="about">
-    <div class="section__head">
-      <span class="section__idx mono">(01)</span>
-      <span class="section__label mono">$ cd about</span>
-    </div>
+  <section class="section" id="about" data-accent="pink">
+    <p class="eyebrow mono"><span>01</span> about</p>
+    <h2 class="title" data-split>I think about software the way I think about <em>circuits.</em></h2>
 
-    <p class="about__statement" data-scrub-words>
-      I build systems that behave <em>predictably under pressure</em> — from browser-based
-      IDEs with sub-50ms leaderboards, to offline mesh networks that route emergency
-      signals <em>without a single bar</em> of internet.
-    </p>
-
-    <div class="about__grid">
-      <h2 class="about__title" data-split>Bridging hardware constraints and <em>scalable software.</em></h2>
-
+    <div class="about">
       <div class="about__text" data-reveal>
         <p>
-          I'm a Software Engineering student at Chhatrapati Shahu Ji Maharaj University,
-          specializing in Electronics &amp; Communication Engineering — which means I tend to
-          think about software the way I think about circuits: latency, throughput, failure
-          modes, and what happens when the signal drops.
+          I'm a B.Tech Electronics &amp; Communication Engineering student at CSJM University,
+          Kanpur, moving seriously into software development. ECE taught me to ask what happens
+          under load and what happens when the signal drops. I bring that question to everything I build.
         </p>
         <p>
-          That mindset shows up in my work — an offline SOS mesh network that keeps
-          routing during connectivity dropouts, a computer-vision pipeline tuned for
-          real-time inference on modest hardware, and a competitive-programming platform
-          that shaved query time from ~320ms to under 50ms. I ship end-to-end: architecture,
-          backend, frontend, and deployment.
+          So far that's meant a leaderboard that went from ~320ms to under 50ms, a mesh network
+          that delivers SOS messages with zero internet, a CLIP model that catches mismatched
+          product listings, and client websites tuned for Lighthouse scores.
         </p>
         <p>
-          Currently building responsive interfaces part-time at Irafactory Media Agency,
-          and contributing to open-source repositories through GSSoC 2026. Open to
-          Software Engineering internships and AI/ML opportunities.
+          Outside code, I dance, sing, make art and crafts, and always have music on. Creativity
+          shapes how I build, which is why I love hackathons: tech, design and problem solving,
+          all in one weekend.
         </p>
       </div>
 
-      <dl class="facts" data-reveal>
-        <div class="fact">
-          <dt class="mono">location</dt>
-          <dd>Kanpur, Uttar Pradesh, India</dd>
-        </div>
-        <div class="fact">
-          <dt class="mono">education</dt>
-          <dd>B.Tech, Electronics &amp; Communication Engineering<br><span class="dim">CSJM University — Aug 2024 → May 2028</span></dd>
-        </div>
-        <div class="fact">
-          <dt class="mono">focus</dt>
-          <dd>Full-Stack Development · AI / ML · Systems that stay up</dd>
-        </div>
-        <div class="fact">
-          <dt class="mono">status</dt>
-          <dd><span class="status-dot" aria-hidden="true"></span>Open to internships</dd>
-        </div>
-      </dl>
+      <figure class="code-card" data-reveal>
+        <figcaption class="code-card__bar mono"><i></i><i></i><i></i>deepika.json</figcaption>
+<pre class="code mono"><code>{
+  <span class="t-key">"name"</span>: <span class="t-str">"Deepika Kashyap"</span>,
+  <span class="t-key">"based_in"</span>: <span class="t-str">"Kanpur, India"</span>,
+  <span class="t-key">"studying"</span>: <span class="t-str">"B.Tech ECE @ CSJMU"</span>,
+  <span class="t-key">"graduating"</span>: <span class="t-num">2028</span>,
+  <span class="t-key">"focus"</span>: [<span class="t-str">"full-stack"</span>, <span class="t-str">"ai/ml"</span>, <span class="t-str">"dsa"</span>],
+  <span class="t-key">"fuel"</span>: [<span class="t-str">"chai"</span>, <span class="t-str">"coffee"</span>],
+  <span class="t-key">"open_to_work"</span>: <span class="t-bool">true</span>
+}</code></pre>
+      </figure>
+    </div>
+
+    <h3 class="subhead" data-reveal>How I work</h3>
+    <div class="principles">
+      <article class="principle" style="--c:var(--blue)" data-reveal>
+        <span class="principle__icon" aria-hidden="true">⏱</span>
+        <h4>Measure first</h4>
+        <p>I profile before I optimise. CodeTrack++'s leaderboard got 85% faster because I found where the 320ms was going.</p>
+      </article>
+      <article class="principle" style="--c:var(--orange)" data-reveal>
+        <span class="principle__icon" aria-hidden="true">📡</span>
+        <h4>Plan for the signal dropping</h4>
+        <p>Networks fail, inputs are messy, users go offline. EchoChat was built to deliver messages with zero bars.</p>
+      </article>
+      <article class="principle" style="--c:var(--mint)" data-reveal>
+        <span class="principle__icon" aria-hidden="true">🚀</span>
+        <h4>Ship the whole thing</h4>
+        <p>Design, frontend, backend, deployment. I like taking an idea all the way to a live URL people can use.</p>
+      </article>
     </div>
 
     <div class="stats">
-      <div class="stat" data-reveal>
+      <div class="stat" style="--c:var(--yellow)" data-reveal>
         <span class="stat__num"><span data-count="85">85</span>%</span>
-        <span class="stat__label mono">faster leaderboard queries<br>CodeTrack++</span>
+        <span class="stat__label">faster leaderboard queries in CodeTrack++</span>
       </div>
-      <div class="stat" data-reveal>
-        <span class="stat__num">~<span data-count="500">500</span>m</span>
-        <span class="stat__label mono">offline multi-hop range<br>EchoChat mesh</span>
+      <div class="stat" style="--c:var(--pink)" data-reveal>
+        <span class="stat__num"><span data-count="100">100</span>+</span>
+        <span class="stat__label">LeetCode problems solved in C++</span>
       </div>
-      <div class="stat" data-reveal>
-        <span class="stat__num"><span data-count="0.76" data-decimals="2">0.76</span></span>
-        <span class="stat__label mono">ROC-AUC on CLIP<br>mismatch detection</span>
+      <div class="stat" style="--c:var(--mint)" data-reveal>
+        <span class="stat__num"><span data-count="2">2</span></span>
+        <span class="stat__label">client websites shipped at Irafactory</span>
       </div>
-      <div class="stat" data-reveal>
-        <span class="stat__num"><span data-count="5">5</span></span>
-        <span class="stat__label mono">projects shipped<br>end-to-end</span>
+      <div class="stat" style="--c:var(--blue)" data-reveal>
+        <span class="stat__num">Top <span data-count="3">3</span></span>
+        <span class="stat__label">of 50+ teams at HackShodh 2026</span>
       </div>
     </div>
   </section>
 
   <!-- ===== WORK ===== -->
-  <section class="work" id="projects">
-    <div class="section work__intro">
-      <div class="section__head">
-        <span class="section__idx mono">(02)</span>
-        <span class="section__label mono">$ ls ./projects</span>
-      </div>
-      <div class="work__heading">
-        <h2 class="display" data-split>Selected <em>work</em></h2>
-        <p class="work__lede" data-reveal>
-          Five builds across full-stack, computer vision, and offline networking —
-          each one taken from architecture to deployment.
-        </p>
-      </div>
+  <section class="section" id="work" data-accent="blue">
+    <p class="eyebrow mono"><span>02</span> work</p>
+    <h2 class="title" data-split>Things I've <em>built.</em></h2>
+    <p class="section__lede" data-reveal>Five projects across full-stack, computer vision, AI and offline networking. Each card shows the problem, what I built, and what changed.</p>
+
+    <div class="stack-cards" id="stackCards">
+
+      <!-- 01 CodeTrack++ -->
+      <article class="pcard" style="--c:var(--blue);--on-c:var(--on-blue)">
+        <div class="pcard__visual">
+          <div class="screen" data-inview>
+            <div class="screen__bar mono"><span>fig.01 · leaderboard latency</span><span class="screen__live">live</span></div>
+            <svg class="viz" viewBox="0 0 400 240" aria-hidden="true">
+              <path class="viz__axis" d="M44,24 V204 H388" />
+              <text class="viz__tick" x="36" y="58" text-anchor="end">320ms</text>
+              <text class="viz__tick" x="36" y="194" text-anchor="end">50ms</text>
+              <path class="viz__guide" d="M44,190 H388" />
+              <path class="viz__line viz__draw" pathLength="1" d="M44,56 L74,51 L104,60 L134,49 L164,58 L194,52 L210,55 L226,194 L256,197 L286,192 L316,196 L346,193 L380,195" />
+              <circle class="viz__ping" cx="380" cy="195" r="4" />
+              <text class="viz__note" x="234" y="128">redis sorted set ↓</text>
+            </svg>
+            <p class="screen__metric"><span class="screen__num">−85%</span><span class="screen__sub mono">~320ms → &lt;50ms</span></p>
+          </div>
+        </div>
+        <div class="pcard__body">
+          <p class="pcard__meta mono"><span class="pcard__idx">01</span> Jun 2026 · Solo, design to deploy</p>
+          <h3 class="pcard__title">CodeTrack++</h3>
+          <p class="pcard__summary">A competitive-programming platform with a browser IDE, personalised problem lists and a sandboxed code runner.</p>
+          <dl class="pcard__case">
+            <div><dt>Problem</dt><dd>Leaderboard queries took ~320ms, and user-submitted JS/C++ can't be trusted to run on a server.</dd></div>
+            <div><dt>Built</dt><dd>A Monaco Editor IDE in React, a Node.js engine that runs submissions in sandboxed child processes against hidden tests, Redis Sorted Sets for ranking, and JWT auth.</dd></div>
+            <div><dt>Result</dt><dd>Leaderboard queries under 50ms, about 85% faster.</dd></div>
+          </dl>
+          <ul class="tags" aria-label="Tech stack"><li>React</li><li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>Redis</li><li>Monaco</li></ul>
+          <div class="pcard__links">
+            <a href="https://codetrack-three.vercel.app/" target="_blank" rel="noopener noreferrer" data-cursor="Live ↗">Live site ↗</a>
+            <a href="https://github.com/DeepikaKashyapp/codetrack" target="_blank" rel="noopener noreferrer" data-cursor="Code ↗">Code ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 Multimodal -->
+      <article class="pcard" style="--c:var(--pink);--on-c:var(--on-pink)">
+        <div class="pcard__visual">
+          <div class="screen" data-inview>
+            <div class="screen__bar mono"><span>fig.02 · shared embedding space</span><span class="screen__live">live</span></div>
+            <svg class="viz" viewBox="0 0 400 240" aria-hidden="true">
+              <text class="viz__tick" x="80" y="30" text-anchor="middle">image</text>
+              <text class="viz__tick" x="320" y="30" text-anchor="middle">title</text>
+              <g>
+                <path class="viz__link" pathLength="1" d="M88,58 C200,48 200,68 312,66" />
+                <path class="viz__link" pathLength="1" d="M70,96 C200,88 200,106 330,102" />
+                <path class="viz__link viz__link--bad" pathLength="1" d="M96,136 C200,138 200,188 300,194" />
+                <path class="viz__link" pathLength="1" d="M64,174 C200,168 200,148 318,140" />
+                <path class="viz__link" pathLength="1" d="M90,208 C200,214 200,222 334,220" />
+              </g>
+              <g class="viz__img"><rect x="82" y="52" width="12" height="12"/><rect x="64" y="90" width="12" height="12"/><rect x="90" y="130" width="12" height="12" class="is-bad"/><rect x="58" y="168" width="12" height="12"/><rect x="84" y="202" width="12" height="12"/></g>
+              <g class="viz__txt"><circle cx="312" cy="66" r="6"/><circle cx="330" cy="102" r="6"/><circle cx="300" cy="194" r="6" class="is-bad"/><circle cx="318" cy="140" r="6"/><circle cx="334" cy="220" r="6"/></g>
+              <text class="viz__note viz__note--bad" x="190" y="184">mismatch · cos θ 0.12</text>
+            </svg>
+            <p class="screen__metric"><span class="screen__num">0.76</span><span class="screen__sub mono">ROC-AUC · 512-d CLIP</span></p>
+          </div>
+        </div>
+        <div class="pcard__body">
+          <p class="pcard__meta mono"><span class="pcard__idx">02</span> May 2026 · Solo</p>
+          <h3 class="pcard__title">Multimodal Product Inconsistency Detector</h3>
+          <p class="pcard__summary">An AI tool that audits e-commerce catalogs for listings where the photo and the title don't match.</p>
+          <dl class="pcard__case">
+            <div><dt>Problem</dt><dd>Mismatched images and titles confuse shoppers, and checking listings by hand doesn't scale.</dd></div>
+            <div><dt>Built</dt><dd>OpenAI CLIP (ViT-B/32) maps images and titles into one 512-d space; cosine similarity with an F1-optimised threshold flags mismatches. Deployed on Streamlit.</dd></div>
+            <div><dt>Result</dt><dd>~78% accuracy and 0.76 ROC-AUC on a 500-sample labelled test set, tuned to miss as few mismatches as possible.</dd></div>
+          </dl>
+          <ul class="tags" aria-label="Tech stack"><li>Python</li><li>CLIP</li><li>PyTorch</li><li>Scikit-learn</li><li>Streamlit</li></ul>
+          <div class="pcard__links">
+            <a href="https://multimodal-inconsistency-detector.streamlit.app/" target="_blank" rel="noopener noreferrer" data-cursor="Live ↗">Live app ↗</a>
+            <a href="https://github.com/DeepikaKashyapp/multimodal-product-inconsistency-detector" target="_blank" rel="noopener noreferrer" data-cursor="Code ↗">Code ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 Zero-Waste -->
+      <article class="pcard" style="--c:var(--mint);--on-c:var(--on-mint)">
+        <div class="pcard__visual">
+          <div class="screen" data-inview>
+            <div class="screen__bar mono"><span>fig.03 · yolov8n detections</span><span class="screen__live">live</span></div>
+            <svg class="viz" viewBox="0 0 400 240" aria-hidden="true">
+              <path class="viz__obj" d="M112,68 h18 v16 c14,8 18,18 18,30 v78 c0,6 -4,10 -10,10 h-34 c-6,0 -10,-4 -10,-10 v-78 c0,-12 4,-22 18,-30 z" />
+              <rect class="viz__obj" x="236" y="118" width="78" height="76" rx="10" />
+              <path class="viz__obj" d="M236,136 h78 M236,176 h78" />
+              <g class="viz__det"><path class="viz__box" d="M80,64 v-12 h12 M168,52 h12 v12 M180,196 v12 h-12 M92,208 h-12 v-12" /><rect class="viz__chip" x="80" y="32" width="92" height="16" /><text class="viz__chip-t" x="86" y="44">bottle 0.94</text></g>
+              <g class="viz__det viz__det--2"><path class="viz__box" d="M222,114 v-12 h12 M316,102 h12 v12 M328,198 v12 h-12 M234,210 h-12 v-12" /><rect class="viz__chip" x="222" y="82" width="78" height="16" /><text class="viz__chip-t" x="228" y="94">can 0.88</text></g>
+              <line class="viz__scan" x1="24" x2="376" y1="28" y2="28" />
+            </svg>
+            <p class="screen__metric"><span class="screen__num">162ms</span><span class="screen__sub mono">per frame · CPU · ~6 FPS</span></p>
+          </div>
+        </div>
+        <div class="pcard__body">
+          <p class="pcard__meta mono"><span class="pcard__idx">03</span> May 2026 · Solo</p>
+          <h3 class="pcard__title">Zero-Waste Vision</h3>
+          <p class="pcard__summary">Real-time waste sorting from a camera feed, built to run on ordinary hardware.</p>
+          <dl class="pcard__case">
+            <div><dt>Problem</dt><dd>Sorting waste correctly needs real-time recognition, but most people don't have a GPU.</dd></div>
+            <div><dt>Built</dt><dd>YOLOv8n detection with MobileNet V2 classification, a mapping from 80+ object classes to disposal rules and carbon-savings estimates, and a Flask REST API behind a React frontend.</dd></div>
+            <div><dt>Result</dt><dd>162.1ms per frame (~6 FPS) on CPU. Showcased at Bharati Vidyapeeth's AI Solution Expo.</dd></div>
+          </dl>
+          <ul class="tags" aria-label="Tech stack"><li>Python</li><li>YOLOv8</li><li>MobileNet V2</li><li>OpenCV</li><li>Flask</li><li>React</li></ul>
+          <div class="pcard__links">
+            <a href="https://ephemeral-duckanoo-f4aaee.netlify.app/" target="_blank" rel="noopener noreferrer" data-cursor="Live ↗">Live site ↗</a>
+            <a href="https://github.com/DeepikaKashyapp/ai-waste-classifier" target="_blank" rel="noopener noreferrer" data-cursor="Code ↗">Code ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 EchoChat -->
+      <article class="pcard" style="--c:var(--orange);--on-c:var(--on-orange)">
+        <div class="pcard__visual">
+          <div class="screen" data-inview>
+            <div class="screen__bar mono"><span>fig.04 · multi-hop sos route</span><span class="screen__live">offline</span></div>
+            <svg class="viz" viewBox="0 0 400 240" aria-hidden="true">
+              <g class="viz__range"><circle cx="50" cy="180" r="50"/><circle cx="130" cy="84" r="50"/><circle cx="210" cy="160" r="50"/><circle cx="290" cy="74" r="50"/><circle cx="358" cy="144" r="50"/></g>
+              <path id="meshRoute" class="viz__line viz__draw" pathLength="1" d="M50,180 L130,84 L210,160 L290,74 L358,144" />
+              <g class="viz__nodes"><circle cx="50" cy="180" r="7"/><circle cx="130" cy="84" r="7"/><circle cx="210" cy="160" r="7"/><circle cx="290" cy="74" r="7"/><circle cx="358" cy="144" r="7" class="is-end"/></g>
+              <g class="viz__tick"><text x="50" y="210" text-anchor="middle">n1</text><text x="130" y="64" text-anchor="middle">n2</text><text x="210" y="190" text-anchor="middle">n3</text><text x="290" y="54" text-anchor="middle">n4</text><text x="358" y="174" text-anchor="middle">SOS ✓</text></g>
+              <g class="viz__lock"><rect x="196" y="98" width="28" height="22" rx="4"/><path d="M202,98 v-6 a8,8 0 0 1 16,0 v6"/></g>
+              <circle class="viz__packet" r="5"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#meshRoute" /></animateMotion></circle>
+            </svg>
+            <p class="screen__metric"><span class="screen__num">~500m</span><span class="screen__sub mono">5 nodes · 0 bars · e2e encrypted</span></p>
+          </div>
+        </div>
+        <div class="pcard__body">
+          <p class="pcard__meta mono"><span class="pcard__idx">04</span> Jan 2026 · Team</p>
+          <h3 class="pcard__title">EchoChat: Offline SOS Mesh Network</h3>
+          <p class="pcard__summary">An Android mesh network for emergency messages when there's no internet at all.</p>
+          <dl class="pcard__case">
+            <div><dt>Problem</dt><dd>In a disaster the internet is often the first thing to go, exactly when people need to send an SOS.</dd></div>
+            <div><dt>Built</dt><dd>Bluetooth LE + Wi-Fi Direct multi-hop delivery with AODV routing, RSSI-based next hops, TTL=5 loop prevention, and a Priority Triage Protocol that drops routine traffic at 80% buffer so SOS gets through.</dd></div>
+            <div><dt>My part</dt><dd>The frontend and product implementation, and the encryption &amp; security layer: libsodium end-to-end encryption for messages and user data.</dd></div>
+            <div><dt>Result</dt><dd>Delivery across a 5-node chain (~500m) with zero internet.</dd></div>
+          </dl>
+          <ul class="tags" aria-label="Tech stack"><li>Kotlin</li><li>Bluetooth LE</li><li>Wi-Fi Direct</li><li>Nearby Connections</li><li>SQLite</li><li>libsodium</li></ul>
+          <div class="pcard__links">
+            <a href="https://github.com/DeepikaKashyapp/Mesh-Rescue-Net" target="_blank" rel="noopener noreferrer" data-cursor="Code ↗">Code ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 05 Chaitanya -->
+      <article class="pcard" style="--c:var(--purple);--on-c:var(--on-purple)">
+        <div class="pcard__visual">
+          <div class="screen" data-inview>
+            <div class="screen__bar mono"><span>fig.05 · breathe in, breathe out</span><span class="screen__live">live</span></div>
+            <svg class="viz" viewBox="0 0 400 240" aria-hidden="true">
+              <g class="viz__breath"><circle cx="200" cy="120" r="100" style="--d:0s"/><circle cx="200" cy="120" r="76" style="--d:.25s"/><circle cx="200" cy="120" r="52" style="--d:.5s"/></g>
+              <text class="viz__deva" x="200" y="132" text-anchor="middle">चैतन्य</text>
+              <g class="viz__orbit"><circle cx="200" cy="20" r="4"/><circle cx="300" cy="120" r="3"/><circle cx="100" cy="120" r="3"/></g>
+            </svg>
+            <p class="screen__metric"><span class="screen__num">Hindi-first</span><span class="screen__sub mono">anonymous · mood tracking</span></p>
+          </div>
+        </div>
+        <div class="pcard__body">
+          <p class="pcard__meta mono"><span class="pcard__idx">05</span> Sep 2025 · Team</p>
+          <h3 class="pcard__title">Chaitanya: AI Mental Health Support</h3>
+          <p class="pcard__summary">An anonymous support prototype for students, with conversational help and mood tracking.</p>
+          <dl class="pcard__case">
+            <div><dt>Problem</dt><dd>Many students won't ask for mental-health support, especially when it isn't offered in their language.</dd></div>
+            <div><dt>Built</dt><dd>Gemini-powered conversations and mood tracking, with culturally resonant Hindi-first branding for rural and semi-urban students.</dd></div>
+            <div><dt>My part</dt><dd>Development and implementation: building the working product with the team in React and Node.js.</dd></div>
+            <div><dt>Result</dt><dd>A working prototype, live on Vercel.</dd></div>
+          </dl>
+          <ul class="tags" aria-label="Tech stack"><li>React</li><li>Node.js</li><li>Gemini API</li></ul>
+          <div class="pcard__links">
+            <a href="https://amigo-omega-one.vercel.app/" target="_blank" rel="noopener noreferrer" data-cursor="Live ↗">Live site ↗</a>
+            <a href="https://github.com/DeepikaKashyapp/amigo" target="_blank" rel="noopener noreferrer" data-cursor="Code ↗">Code ↗</a>
+          </div>
+        </div>
+      </article>
+
     </div>
-
-    <div class="work__pin">
-      <div class="work__track">
-
-        <!-- 01 -->
-        <article class="project">
-          <div class="project__visual">
-            <div class="screen" data-inview>
-              <div class="screen__bar mono"><span>fig.01 — leaderboard latency</span><span class="screen__live">live</span></div>
-              <svg class="viz" viewBox="0 0 400 260" aria-hidden="true">
-                <path class="viz__axis" d="M40,30 V220 H384" />
-                <text class="viz__tick" x="32" y="66" text-anchor="end">320</text>
-                <text class="viz__tick" x="32" y="210" text-anchor="end">50</text>
-                <path class="viz__guide" d="M40,206 H384" />
-                <path class="viz__line viz__draw" pathLength="1"
-                  d="M40,62 L70,57 L100,67 L130,55 L160,64 L190,58 L206,61 L222,210 L252,213 L282,208 L312,212 L342,209 L376,211" />
-                <circle class="viz__ping" cx="376" cy="211" r="4" />
-                <text class="viz__note" x="230" y="140">redis zset cache ↓</text>
-              </svg>
-              <div class="screen__metric">
-                <span class="screen__num">−85%</span>
-                <span class="screen__sub mono">~320ms → &lt;50ms</span>
-              </div>
-            </div>
-          </div>
-          <div class="project__body">
-            <div class="project__meta mono"><span>01 / 05</span><span>Jun 2026</span></div>
-            <h3 class="project__title">CodeTrack++</h3>
-            <p class="project__desc">
-              A full-stack competitive programming platform with a Monaco Editor browser IDE,
-              personalized problem lists, and a sandboxed remote code execution engine for
-              untrusted JS / C++ submissions.
-            </p>
-            <ul class="project__points">
-              <li>Redis Sorted Sets caching layer cut leaderboard query time from ~320ms to &lt;50ms (~85% reduction).</li>
-              <li>Sandboxed execution engine via Node.js child processes against hidden test cases.</li>
-              <li>Secure JWT authentication across the platform.</li>
-            </ul>
-            <ul class="tags" aria-label="Tech stack">
-              <li>React.js</li><li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>Redis</li><li>Monaco Editor</li>
-            </ul>
-            <div class="project__links">
-              <a href="https://github.com/DeepikaKashyapp/codetrack" target="_blank" rel="noopener noreferrer" data-cursor="Code ↗"><span class="roll">Code</span> ↗</a>
-              <a href="https://codetrack-three.vercel.app/" target="_blank" rel="noopener noreferrer" data-cursor="Live ↗"><span class="roll">Live</span> ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 02 -->
-        <article class="project">
-          <div class="project__visual">
-            <div class="screen" data-inview>
-              <div class="screen__bar mono"><span>fig.02 — shared embedding space</span><span class="screen__live">live</span></div>
-              <svg class="viz" viewBox="0 0 400 260" aria-hidden="true">
-                <text class="viz__tick" x="80" y="42" text-anchor="middle">image</text>
-                <text class="viz__tick" x="320" y="42" text-anchor="middle">title</text>
-                <g class="viz__pairs">
-                  <path class="viz__link" pathLength="1" d="M88,70 C200,60 200,80 312,78" />
-                  <path class="viz__link" pathLength="1" d="M70,108 C200,100 200,118 330,114" />
-                  <path class="viz__link viz__link--bad" pathLength="1" d="M96,148 C200,150 200,200 300,206" />
-                  <path class="viz__link" pathLength="1" d="M64,186 C200,180 200,160 318,152" />
-                  <path class="viz__link" pathLength="1" d="M90,220 C200,226 200,236 334,232" />
-                </g>
-                <g class="viz__img">
-                  <rect x="82" y="64" width="12" height="12" /><rect x="64" y="102" width="12" height="12" />
-                  <rect x="90" y="142" width="12" height="12" class="is-bad" /><rect x="58" y="180" width="12" height="12" />
-                  <rect x="84" y="214" width="12" height="12" />
-                </g>
-                <g class="viz__txt">
-                  <circle cx="312" cy="78" r="6" /><circle cx="330" cy="114" r="6" />
-                  <circle cx="300" cy="206" r="6" class="is-bad" /><circle cx="318" cy="152" r="6" />
-                  <circle cx="334" cy="232" r="6" />
-                </g>
-                <text class="viz__note viz__note--bad" x="196" y="196">mismatch · cos θ 0.12</text>
-              </svg>
-              <div class="screen__metric">
-                <span class="screen__num">0.76</span>
-                <span class="screen__sub mono">ROC-AUC · 512-d CLIP</span>
-              </div>
-            </div>
-          </div>
-          <div class="project__body">
-            <div class="project__meta mono"><span>02 / 05</span><span>May 2026</span></div>
-            <h3 class="project__title">Multimodal Product Inconsistency Detector</h3>
-            <p class="project__desc">
-              An AI catalog-auditing tool that uses OpenAI CLIP's dual-encoder to catch
-              image–title mismatches in e-commerce listings.
-            </p>
-            <ul class="project__points">
-              <li>Projects listings into a shared 512-d embedding space; cosine similarity with F1-optimised thresholding.</li>
-              <li>~78% accuracy and 0.76 ROC-AUC on a 500-sample labeled test set.</li>
-              <li>Deployed as a live Streamlit app, tuned for low false-negative auditing.</li>
-            </ul>
-            <ul class="tags" aria-label="Tech stack">
-              <li>Python</li><li>CLIP (ViT-B/32)</li><li>PyTorch</li><li>Streamlit</li><li>Scikit-learn</li>
-            </ul>
-            <div class="project__links">
-              <a href="https://github.com/DeepikaKashyapp/multimodal-product-inconsistency-detector" target="_blank" rel="noopener noreferrer" data-cursor="Code ↗"><span class="roll">Code</span> ↗</a>
-              <a href="https://multimodal-inconsistency-detector.streamlit.app/" target="_blank" rel="noopener noreferrer" data-cursor="Live ↗"><span class="roll">Live</span> ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 03 -->
-        <article class="project">
-          <div class="project__visual">
-            <div class="screen" data-inview>
-              <div class="screen__bar mono"><span>fig.03 — yolov8n detections</span><span class="screen__live">live</span></div>
-              <svg class="viz" viewBox="0 0 400 260" aria-hidden="true">
-                <path class="viz__obj" d="M112,78 h18 v16 c14,8 18,18 18,30 v78 c0,6 -4,10 -10,10 h-34 c-6,0 -10,-4 -10,-10 v-78 c0,-12 4,-22 18,-30 z" />
-                <rect class="viz__obj" x="236" y="128" width="78" height="76" rx="10" />
-                <path class="viz__obj" d="M236,146 h78 M236,186 h78" />
-                <g class="viz__det">
-                  <path class="viz__box" d="M80,74 v-12 h12 M168,62 h12 v12 M180,206 v12 h-12 M92,218 h-12 v-12" />
-                  <rect class="viz__chip" x="80" y="44" width="92" height="16" />
-                  <text class="viz__chip-t" x="86" y="56">bottle 0.94</text>
-                </g>
-                <g class="viz__det viz__det--2">
-                  <path class="viz__box" d="M222,124 v-12 h12 M316,112 h12 v12 M328,208 v12 h-12 M234,220 h-12 v-12" />
-                  <rect class="viz__chip" x="222" y="94" width="78" height="16" />
-                  <text class="viz__chip-t" x="228" y="106">can 0.88</text>
-                </g>
-                <line class="viz__scan" x1="24" x2="376" y1="40" y2="40" />
-              </svg>
-              <div class="screen__metric">
-                <span class="screen__num">162ms</span>
-                <span class="screen__sub mono">per frame · CPU · ~6 FPS</span>
-              </div>
-            </div>
-          </div>
-          <div class="project__body">
-            <div class="project__meta mono"><span>03 / 05</span><span>May 2026</span></div>
-            <h3 class="project__title">Zero-Waste Vision</h3>
-            <p class="project__desc">
-              A real-time waste-sorting classification pipeline pairing YOLOv8n with MobileNet V2,
-              built for low-latency inference on modest hardware.
-            </p>
-            <ul class="project__points">
-              <li>162.1ms/frame (~6 FPS) CPU inference speed.</li>
-              <li>Custom dictionary-mapping algorithm linking 80+ object classes to disposal protocols and carbon-savings estimates.</li>
-              <li>Flask REST API deployed to a React frontend for real-time inference.</li>
-            </ul>
-            <ul class="tags" aria-label="Tech stack">
-              <li>Python</li><li>YOLOv8</li><li>MobileNet V2</li><li>Flask</li><li>React</li>
-            </ul>
-            <div class="project__links">
-              <a href="https://github.com/DeepikaKashyapp/ai-waste-classifier" target="_blank" rel="noopener noreferrer" data-cursor="Code ↗"><span class="roll">Code</span> ↗</a>
-              <a href="https://ephemeral-duckanoo-f4aaee.netlify.app/" target="_blank" rel="noopener noreferrer" data-cursor="Live ↗"><span class="roll">Live</span> ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 04 -->
-        <article class="project">
-          <div class="project__visual">
-            <div class="screen" data-inview>
-              <div class="screen__bar mono"><span>fig.04 — multi-hop sos route</span><span class="screen__live">offline</span></div>
-              <svg class="viz" viewBox="0 0 400 260" aria-hidden="true">
-                <g class="viz__range">
-                  <circle cx="50" cy="196" r="54" /><circle cx="130" cy="96" r="54" /><circle cx="210" cy="176" r="54" />
-                  <circle cx="290" cy="86" r="54" /><circle cx="358" cy="156" r="54" />
-                </g>
-                <path id="meshRoute" class="viz__line viz__draw" pathLength="1" d="M50,196 L130,96 L210,176 L290,86 L358,156" />
-                <g class="viz__nodes">
-                  <circle cx="50" cy="196" r="7" /><circle cx="130" cy="96" r="7" /><circle cx="210" cy="176" r="7" />
-                  <circle cx="290" cy="86" r="7" /><circle cx="358" cy="156" r="7" class="is-end" />
-                </g>
-                <g class="viz__tick">
-                  <text x="50" y="226" text-anchor="middle">n1</text><text x="130" y="76" text-anchor="middle">n2</text>
-                  <text x="210" y="206" text-anchor="middle">n3</text><text x="290" y="66" text-anchor="middle">n4</text>
-                  <text x="358" y="186" text-anchor="middle">SOS ✓</text>
-                </g>
-                <circle class="viz__packet" r="5">
-                  <animateMotion dur="3.2s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear">
-                    <mpath href="#meshRoute" />
-                  </animateMotion>
-                </circle>
-              </svg>
-              <div class="screen__metric">
-                <span class="screen__num">~500m</span>
-                <span class="screen__sub mono">5 nodes · 0 bars of internet</span>
-              </div>
-            </div>
-          </div>
-          <div class="project__body">
-            <div class="project__meta mono"><span>04 / 05</span><span>Jan 2026 · Team</span></div>
-            <h3 class="project__title">EchoChat — Offline SOS Mesh Network</h3>
-            <p class="project__desc">
-              A 100% offline Android mesh network for emergency communication when the internet
-              isn't an option.
-            </p>
-            <ul class="project__points">
-              <li>BLE + Wi-Fi Direct multi-hop delivery across a 5-node chain, ~500m, zero internet dependency.</li>
-              <li>Custom Priority Triage Protocol (Levels 1–5) purges routine traffic at 80% buffer congestion for zero-latency SOS delivery.</li>
-              <li>libsodium end-to-end encryption with AODV routing, RSSI-based next-hop selection, TTL=5 loop prevention.</li>
-            </ul>
-            <ul class="tags" aria-label="Tech stack">
-              <li>Android (Kotlin)</li><li>Bluetooth LE</li><li>Wi-Fi Direct</li><li>Nearby Connections API</li><li>SQLite</li><li>libsodium</li>
-            </ul>
-            <div class="project__links">
-              <a href="https://github.com/DeepikaKashyapp/Mesh-Rescue-Net" target="_blank" rel="noopener noreferrer" data-cursor="Code ↗"><span class="roll">Code</span> ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- 05 -->
-        <article class="project">
-          <div class="project__visual">
-            <div class="screen" data-inview>
-              <div class="screen__bar mono"><span>fig.05 — breathe in, breathe out</span><span class="screen__live">live</span></div>
-              <svg class="viz" viewBox="0 0 400 260" aria-hidden="true">
-                <g class="viz__breath">
-                  <circle cx="200" cy="130" r="104" style="--d:0s" />
-                  <circle cx="200" cy="130" r="80" style="--d:.25s" />
-                  <circle cx="200" cy="130" r="56" style="--d:.5s" />
-                </g>
-                <text class="viz__deva" x="200" y="142" text-anchor="middle">चैतन्य</text>
-                <g class="viz__orbit">
-                  <circle cx="200" cy="26" r="4" /><circle cx="304" cy="130" r="3" /><circle cx="96" cy="130" r="3" />
-                </g>
-              </svg>
-              <div class="screen__metric">
-                <span class="screen__num serif">Hindi-first</span>
-                <span class="screen__sub mono">anonymous support · mood tracking</span>
-              </div>
-            </div>
-          </div>
-          <div class="project__body">
-            <div class="project__meta mono"><span>05 / 05</span><span>Sep 2025 · Team</span></div>
-            <h3 class="project__title">Chaitanya — AI Mental Health Support System</h3>
-            <p class="project__desc">
-              An AI-driven mental health support prototype for students, built around anonymous
-              counseling and intelligent mood tracking.
-            </p>
-            <ul class="project__points">
-              <li>Integrated the Google Gemini API for conversational support and mood tracking.</li>
-              <li>Culturally resonant Hindi-first branding to optimize adoption across rural and semi-urban demographics.</li>
-            </ul>
-            <ul class="tags" aria-label="Tech stack">
-              <li>React.js</li><li>Node.js</li><li>Google Gemini AI</li>
-            </ul>
-            <div class="project__links">
-              <a href="https://github.com/DeepikaKashyapp/amigo" target="_blank" rel="noopener noreferrer" data-cursor="Code ↗"><span class="roll">Code</span> ↗</a>
-              <a href="https://amigo-omega-one.vercel.app/" target="_blank" rel="noopener noreferrer" data-cursor="Live ↗"><span class="roll">Live</span> ↗</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- end card -->
-        <a class="work__more" href="https://github.com/DeepikaKashyapp" target="_blank" rel="noopener noreferrer" data-cursor="GitHub ↗">
-          <span class="mono">// more experiments</span>
-          <span class="work__more-title">See everything<br>on <em>GitHub</em> ↗</span>
-        </a>
-
-      </div>
-
-      <div class="work__hud mono" aria-hidden="true">
-        <span><span id="workIdx">01</span> / 05</span>
-        <span class="work__bar"><span id="workBar"></span></span>
-        <span>scroll →</span>
-      </div>
-    </div>
+    <p class="more-link" data-reveal><a href="https://github.com/DeepikaKashyapp" target="_blank" rel="noopener noreferrer">More experiments on GitHub ↗</a></p>
   </section>
 
   <!-- ===== EXPERIENCE ===== -->
-  <section class="section" id="experience">
-    <div class="section__head">
-      <span class="section__idx mono">(03)</span>
-      <span class="section__label mono">$ git log --experience</span>
-    </div>
-    <h2 class="display" data-split>Where I've <em>worked</em></h2>
+  <section class="section" id="experience" data-accent="orange">
+    <p class="eyebrow mono"><span>03</span> experience</p>
+    <h2 class="title" data-split>Where I've <em>shipped.</em></h2>
 
-    <ol class="xp">
-      <li class="xp__item" data-reveal>
-        <span class="xp__date mono"><span class="status-dot" aria-hidden="true"></span>Jun 2026 — Present</span>
-        <div class="xp__main">
-          <h3 class="xp__role">Junior Web Developer</h3>
-          <p class="xp__org">Irafactory Media Agency · Bengaluru, India (Remote)</p>
-        </div>
-        <ul class="xp__points">
-          <li>Build and maintain responsive React interfaces, focused on rendering performance and cross-browser compatibility.</li>
-          <li>Implement technical SEO optimizations and translate design mockups into functional, scalable components.</li>
-          <li>Manage CMS integrations and coordinate with cross-functional teams to ship client deliverables on schedule.</li>
+    <ol class="gitlog" id="gitlog">
+      <li class="commit" style="--c:var(--orange)" data-reveal>
+        <span class="commit__dot" aria-hidden="true"></span>
+        <p class="commit__hash mono"><span>commit 7f3a9c2</span> · 1 Jun – 10 Aug 2026</p>
+        <h3 class="commit__role">Junior Web Developer Intern</h3>
+        <p class="commit__org">Irafactory Media Agency · Bengaluru, India (Remote)</p>
+        <ul class="commit__points">
+          <li>Turned Figma designs into responsive, production websites with React, HTML, CSS and JavaScript, plus WordPress and Webflow.</li>
+          <li>Improved SEO and Lighthouse performance on client sites.</li>
+          <li>Shipped client sites including Gharbar Boutique Stay &amp; Cafe and The Himalayan Chester.</li>
         </ul>
+        <div class="commit__links">
+          <a href="https://gharbarcafe.com/" target="_blank" rel="noopener noreferrer" data-cursor="Visit ↗">gharbarcafe.com ↗</a>
+          <a href="https://www.thehimalayanchester.com/" target="_blank" rel="noopener noreferrer" data-cursor="Visit ↗">thehimalayanchester.com ↗</a>
+        </div>
+        <ul class="tags" aria-label="Tools used"><li>React</li><li>WordPress</li><li>Webflow</li><li>Figma</li><li>SEO</li><li>Lighthouse</li></ul>
       </li>
-      <li class="xp__item" data-reveal>
-        <span class="xp__date mono"><span class="status-dot" aria-hidden="true"></span>May 2026 — Present</span>
-        <div class="xp__main">
-          <h3 class="xp__role">Open Source Contributor</h3>
-          <p class="xp__org">GirlScript Summer of Code (GSSoC) · Remote</p>
-        </div>
-        <ul class="xp__points">
-          <li>Collaborate with a global community of developers to build, test, and optimize open-source repositories.</li>
-          <li>Use core Git/GitHub workflows to manage branches, debug active codebases, and submit clean pull requests.</li>
-          <li>Work alongside mentors and peers reviewing code for scalability, performance, and project standards.</li>
+      <li class="commit" style="--c:var(--mint)" data-reveal>
+        <span class="commit__dot" aria-hidden="true"></span>
+        <p class="commit__hash mono"><span>commit 4c1e0b8</span> · May 2026 – present</p>
+        <h3 class="commit__role">Open Source Contributor</h3>
+        <p class="commit__org">GirlScript Summer of Code (GSSoC) 2026 · Remote</p>
+        <ul class="commit__points">
+          <li>Contribute frontend pull requests, code reviews and issue fixes across open-source repositories.</li>
+          <li>Work with mentors and peers using real Git/GitHub workflows: branches, reviews and clean PRs.</li>
         </ul>
+        <ul class="tags" aria-label="Tools used"><li>Git</li><li>GitHub</li><li>JavaScript</li><li>Code review</li></ul>
+      </li>
+      <li class="commit commit--init" style="--c:var(--purple)" data-reveal>
+        <span class="commit__dot" aria-hidden="true"></span>
+        <p class="commit__hash mono"><span>commit 0a0a0a0</span> · Aug 2024 – May 2028</p>
+        <h3 class="commit__role">git init: B.Tech, Electronics &amp; Communication Engineering</h3>
+        <p class="commit__org">Chhatrapati Shahu Ji Maharaj University · Kanpur</p>
       </li>
     </ol>
   </section>
 
-  <!-- ===== STACK ===== -->
-  <section class="section" id="skills">
-    <div class="section__head">
-      <span class="section__idx mono">(04)</span>
-      <span class="section__label mono">$ cat skills.json</span>
-    </div>
-    <h2 class="display" data-split>Tools I <em>reach for</em></h2>
+  <!-- ===== SKILLS ===== -->
+  <section class="section" id="skills" data-accent="mint">
+    <p class="eyebrow mono"><span>04</span> skills</p>
+    <h2 class="title" data-split>Tools I <em>reach for.</em></h2>
+    <p class="section__lede" data-reveal>Hover or focus a tool to see where I've used it.</p>
 
-    <div class="stack">
-      <div class="stack__row" data-reveal>
-        <h3 class="stack__cat mono"><span>01</span>languages</h3>
-        <ul class="stack__items"><li>Python</li><li>C++</li><li>JavaScript</li><li>TypeScript</li><li>Java</li><li>SQL</li></ul>
+    <div class="editor" data-reveal>
+      <div class="editor__bar"><i></i><i></i><i></i><span class="mono">~/deepika/skills</span></div>
+      <div class="editor__tabs" role="tablist" aria-label="Skill files">
+        <button role="tab" id="tab-lang" aria-controls="pane-lang" aria-selected="true" class="mono"><b style="--c:var(--blue)">TS</b>languages.ts</button>
+        <button role="tab" id="tab-front" aria-controls="pane-front" aria-selected="false" tabindex="-1" class="mono"><b style="--c:var(--pink)">TSX</b>frontend.tsx</button>
+        <button role="tab" id="tab-back" aria-controls="pane-back" aria-selected="false" tabindex="-1" class="mono"><b style="--c:var(--yellow)">JS</b>backend.js</button>
+        <button role="tab" id="tab-ai" aria-controls="pane-ai" aria-selected="false" tabindex="-1" class="mono"><b style="--c:var(--mint)">PY</b>ai_ml.py</button>
+        <button role="tab" id="tab-tools" aria-controls="pane-tools" aria-selected="false" tabindex="-1" class="mono"><b style="--c:var(--orange)">SH</b>tools.sh</button>
       </div>
-      <div class="stack__row" data-reveal>
-        <h3 class="stack__cat mono"><span>02</span>frontend</h3>
-        <ul class="stack__items"><li>React.js</li><li>HTML / CSS</li><li>Tailwind CSS</li><li>Streamlit</li></ul>
+
+      <div class="editor__pane" role="tabpanel" id="pane-lang" aria-labelledby="tab-lang">
+<pre class="code mono"><code><span class="t-com">// the languages I write most</span>
+<span class="t-kw">export const</span> <span class="t-fn">languages</span> = [
+  <span class="t-str s" tabindex="0" data-used="CLIP detector, Zero-Waste Vision">"Python"</span>, <span class="t-str s" tabindex="0" data-used="DSA practice — 100+ LeetCode problems">"C++"</span>, <span class="t-str s" tabindex="0" data-used="CodeTrack++, client sites at Irafactory">"JavaScript"</span>,
+  <span class="t-str s" tabindex="0">"TypeScript"</span>, <span class="t-str s" tabindex="0">"Java"</span>, <span class="t-str s" tabindex="0" data-used="CodeTrack++ (PostgreSQL)">"SQL"</span>, <span class="t-str s" tabindex="0" data-used="EchoChat (Android)">"Kotlin"</span>,
+] <span class="t-kw">as const</span>;</code></pre>
       </div>
-      <div class="stack__row" data-reveal>
-        <h3 class="stack__cat mono"><span>03</span>backend &amp; apis</h3>
-        <ul class="stack__items"><li>Node.js</li><li>Express.js</li><li>Flask</li><li>REST APIs</li><li>JWT Auth</li></ul>
+      <div class="editor__pane" role="tabpanel" id="pane-front" aria-labelledby="tab-front" hidden>
+<pre class="code mono"><code><span class="t-com">// interfaces, from Figma to production</span>
+<span class="t-kw">export function</span> <span class="t-fn">Frontend</span>() {
+  <span class="t-kw">return</span> (
+    &lt;<span class="t-tag">Stack</span>&gt;
+      &lt;<span class="t-tag s" tabindex="0" data-used="CodeTrack++, Zero-Waste Vision, Chaitanya, Irafactory">React</span> /&gt;
+      &lt;<span class="t-tag s" tabindex="0" data-used="Client sites at Irafactory">HTML_CSS</span> /&gt;
+      &lt;<span class="t-tag s" tabindex="0">Tailwind</span> /&gt;
+      &lt;<span class="t-tag s" tabindex="0" data-used="Client sites at Irafactory">WordPress</span> /&gt; &lt;<span class="t-tag s" tabindex="0" data-used="Client sites at Irafactory">Webflow</span> /&gt;
+      &lt;<span class="t-tag s" tabindex="0" data-used="Figma-to-website builds at Irafactory">Figma</span> /&gt;
+      &lt;<span class="t-tag s" tabindex="0" data-used="CLIP detector">Streamlit</span> /&gt;
+    &lt;/<span class="t-tag">Stack</span>&gt;
+  );
+}</code></pre>
       </div>
-      <div class="stack__row" data-reveal>
-        <h3 class="stack__cat mono"><span>04</span>data &amp; caching</h3>
-        <ul class="stack__items"><li>PostgreSQL</li><li>MySQL</li><li>Redis</li><li>Supabase</li></ul>
+      <div class="editor__pane" role="tabpanel" id="pane-back" aria-labelledby="tab-back" hidden>
+<pre class="code mono"><code><span class="t-com">// servers, data and auth</span>
+<span class="t-kw">const</span> <span class="t-fn">backend</span> = {
+  <span class="t-key">runtime</span>: [<span class="t-str s" tabindex="0" data-used="CodeTrack++, Chaitanya">"Node.js"</span>, <span class="t-str s" tabindex="0" data-used="CodeTrack++">"Express"</span>, <span class="t-str s" tabindex="0" data-used="Zero-Waste Vision">"Flask"</span>],
+  <span class="t-key">apis</span>: [<span class="t-str s" tabindex="0" data-used="Zero-Waste Vision">"REST"</span>, <span class="t-str s" tabindex="0" data-used="CodeTrack++">"JWT auth"</span>],
+  <span class="t-key">data</span>: [<span class="t-str s" tabindex="0" data-used="CodeTrack++">"PostgreSQL"</span>, <span class="t-str s" tabindex="0">"MySQL"</span>, <span class="t-str s" tabindex="0" data-used="EchoChat">"SQLite"</span>, <span class="t-str s" tabindex="0">"Supabase"</span>],
+  <span class="t-key">cache</span>: <span class="t-str s" tabindex="0" data-used="CodeTrack++ — 85% faster leaderboard">"Redis"</span>,
+  <span class="t-key">security</span>: <span class="t-str s" tabindex="0" data-used="EchoChat — end-to-end encryption">"libsodium"</span>,
+};</code></pre>
       </div>
-      <div class="stack__row" data-reveal>
-        <h3 class="stack__cat mono"><span>05</span>ai / ml</h3>
-        <ul class="stack__items"><li>PyTorch</li><li>OpenCV</li><li>YOLOv8</li><li>CLIP (ViT-B/32)</li><li>Scikit-learn</li><li>Gemini API</li></ul>
+      <div class="editor__pane" role="tabpanel" id="pane-ai" aria-labelledby="tab-ai" hidden>
+<pre class="code mono"><code><span class="t-com"># models and libraries I've shipped with</span>
+<span class="t-kw">from</span> deepika <span class="t-kw">import</span> curiosity
+
+<span class="t-fn">ai_ml</span> = {
+    <span class="t-str s" tabindex="0" data-used="CLIP detector">"PyTorch"</span>, <span class="t-str s" tabindex="0" data-used="Zero-Waste Vision">"OpenCV"</span>, <span class="t-str s" tabindex="0" data-used="Zero-Waste Vision — ~6 FPS on CPU">"YOLOv8"</span>,
+    <span class="t-str s" tabindex="0" data-used="CLIP detector — 0.76 ROC-AUC">"CLIP (ViT-B/32)"</span>, <span class="t-str s" tabindex="0" data-used="CLIP detector — F1 thresholding">"scikit-learn"</span>,
+    <span class="t-str s" tabindex="0" data-used="Chaitanya">"Gemini API"</span>,
+}
+<span class="t-com"># currently exploring: LLMs and AI-powered apps</span></code></pre>
       </div>
-      <div class="stack__row" data-reveal>
-        <h3 class="stack__cat mono"><span>06</span>devops &amp; tools</h3>
-        <ul class="stack__items"><li>Git / GitHub</li><li>Docker</li><li>Vercel</li><li>Netlify</li><li>Postman</li><li>Linux</li></ul>
+      <div class="editor__pane" role="tabpanel" id="pane-tools" aria-labelledby="tab-tools" hidden>
+<pre class="code mono"><code><span class="t-com"># day-to-day tooling</span>
+<span class="t-fn">brew</span> install <span class="t-str s" tabindex="0" data-used="Every project, GSSoC">git</span> <span class="t-str s" tabindex="0">docker</span> <span class="t-str s" tabindex="0">postman</span>
+<span class="t-fn">deploy</span> --to <span class="t-str s" tabindex="0" data-used="CodeTrack++, Chaitanya">vercel</span> <span class="t-str s" tabindex="0" data-used="Zero-Waste Vision">netlify</span>
+<span class="t-fn">audit</span> --with <span class="t-str s" tabindex="0" data-used="Client sites at Irafactory">lighthouse</span> <span class="t-str s" tabindex="0" data-used="Client sites at Irafactory">seo</span>
+<span class="t-fn">echo</span> <span class="t-str">"runs on</span> <span class="t-str s" tabindex="0">linux</span><span class="t-str">"</span></code></pre>
+      </div>
+      <p class="editor__status mono" id="usedIn" aria-live="polite"><span>●</span> hover a tool to see where it was used</p>
+    </div>
+  </section>
+
+  <!-- ===== PLAYGROUND ===== -->
+  <section class="section" id="playground" data-accent="purple">
+    <p class="eyebrow mono"><span>05</span> playground</p>
+    <h2 class="title" data-split>Take a <em>break.</em></h2>
+    <p class="section__lede" data-reveal>Help pixel-me ship to production. Jump the bugs, grab skills and coffee, and try to beat my score. Or poke around the terminal.</p>
+
+    <div class="play">
+      <div class="game" data-reveal>
+        <div class="game__bar mono">
+          <span>deploy_dash.exe</span>
+          <span>Space / ↑ / tap to jump</span>
+        </div>
+        <canvas id="game" class="game__canvas" tabindex="0" aria-label="Deploy Dash game. Press Space or tap to start and jump."></canvas>
+        <p class="game__fact mono" id="gameFact" aria-live="polite">Collect skill tokens to unlock facts about my work.</p>
+      </div>
+
+      <div class="term" data-reveal>
+        <div class="term__bar mono"><i></i><i></i><i></i>guest@deepika: ~</div>
+        <div class="term__out mono" id="termOut" role="log" aria-live="polite"></div>
+        <form class="term__form mono" id="termForm" autocomplete="off">
+          <label for="termInput"><span class="term__ps">guest@deepika</span>:<span class="term__dir">~</span>$</label>
+          <input id="termInput" type="text" spellcheck="false" autocapitalize="off" aria-label="Terminal command" placeholder="type help" />
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- ===== RECOGNITION ===== -->
-  <section class="section" id="achievements">
-    <div class="section__head">
-      <span class="section__idx mono">(05)</span>
-      <span class="section__label mono">$ cat achievements.log</span>
+  <!-- ===== WINS ===== -->
+  <section class="section" id="wins" data-accent="yellow">
+    <p class="eyebrow mono"><span>06</span> wins</p>
+    <h2 class="title" data-split>Wins &amp; <em>receipts.</em></h2>
+    <div class="wins">
+      <article class="win" style="--c:var(--yellow);--on-c:var(--on-yellow)" data-reveal>
+        <p class="win__tag mono">hackathon · Jan 2026</p>
+        <p class="win__big">Top 3</p>
+        <p>Finalist out of 50+ teams at HackShodh.</p>
+      </article>
+      <article class="win" style="--c:var(--pink);--on-c:var(--on-pink)" data-reveal>
+        <p class="win__tag mono">ui/ux · Mar 2026</p>
+        <p class="win__big">3rd place</p>
+        <p>The Responsive Rumble UI/UX Challenge.</p>
+      </article>
+      <article class="win" style="--c:var(--mint);--on-c:var(--on-mint)" data-reveal>
+        <p class="win__tag mono">exhibitions</p>
+        <p class="win__big">AI Expo</p>
+        <p>Showcased Zero-Waste Vision at Bharati Vidyapeeth's AI Solution Expo; reached the mentoring round at SnowHackIPEC.</p>
+      </article>
+      <article class="win" style="--c:var(--blue);--on-c:var(--on-blue)" data-reveal>
+        <p class="win__tag mono">dsa</p>
+        <p class="win__big">100+</p>
+        <p>LeetCode problems solved in C++, plus more on other platforms.</p>
+      </article>
     </div>
-    <div class="awards">
-      <article class="award" data-reveal>
-        <span class="award__tag mono">hackathons</span>
-        <p class="award__big">Top 3 <span class="serif">/ 50+</span></p>
-        <p class="award__text">Top 3 finalist (of 50+ teams) at HackShodh, Jan 2026 · 3rd place, The Responsive Rumble UI/UX Challenge, Mar 2026.</p>
-      </article>
-      <article class="award" data-reveal>
-        <span class="award__tag mono">open source</span>
-        <p class="award__big">GSSoC <span class="serif">’26</span></p>
-        <p class="award__text">Active GSSoC 2026 contributor — frontend PRs, code reviews, and issue resolution across open-source repositories.</p>
-      </article>
-      <article class="award" data-reveal>
-        <span class="award__tag mono">exhibitions</span>
-        <p class="award__big">AI <span class="serif">Expo</span></p>
-        <p class="award__text">Showcased the AI waste-classification project at Bharati Vidyapeeth's AI Solution Expo; advanced to the mentoring round at SnowHackIPEC.</p>
-      </article>
-      <article class="award" data-reveal>
-        <span class="award__tag mono">dsa</span>
-        <p class="award__big">C++ <span class="serif">daily</span></p>
-        <p class="award__text">Consistently solving problems on LeetCode using C++.</p>
-      </article>
+  </section>
+
+  <!-- ===== NOW ===== -->
+  <section class="section" id="now" data-accent="blue">
+    <p class="eyebrow mono"><span>07</span> now</p>
+    <h2 class="title" data-split>What I'm up to <em>right now.</em></h2>
+    <div class="now">
+      <div class="now__card" data-reveal>
+        <p class="now__file mono">now.md · updated Oct 2026</p>
+        <ul class="now__list">
+          <li style="--c:var(--pink)"><b>Building</b> projects across web development, AI/ML and DSA, and hackathon ideas on weekends.</li>
+          <li style="--c:var(--blue)"><b>Improving</b> my full-stack skills, end to end.</li>
+          <li style="--c:var(--yellow)"><b>Practising</b> DSA and problem solving, consistently.</li>
+          <li style="--c:var(--mint)"><b>Exploring</b> LLMs and AI-powered applications.</li>
+          <li style="--c:var(--purple)"><b>Learning</b> better software engineering and system design.</li>
+        </ul>
+      </div>
+      <div class="off" data-reveal>
+        <p class="now__file mono">off_the_clock/</p>
+        <ul class="off__chips">
+          <li style="--c:var(--pink)">💃 Dancing</li>
+          <li style="--c:var(--orange)">🎤 Singing</li>
+          <li style="--c:var(--blue)">🎧 Music, always</li>
+          <li style="--c:var(--mint)">🎨 Art &amp; crafts</li>
+          <li style="--c:var(--purple)">✨ Making things</li>
+        </ul>
+        <p class="off__fact">I love both chai and coffee ☕ and refuse to choose between them.</p>
+      </div>
     </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section class="contact" id="contact" data-theme="light">
+  <section class="contact" id="contact" data-accent="yellow">
     <div class="contact__inner">
-      <div class="section__head">
-        <span class="section__idx mono">(06)</span>
-        <span class="section__label mono">$ ./connect --with=deepika</span>
+      <p class="eyebrow mono"><span>08</span> contact</p>
+      <h2 class="contact__title" data-split>Let's build something <em>fun.</em></h2>
+      <p class="contact__desc" data-reveal>Open to software engineering internships, hackathon teams, open-source collaboration and AI/ML work. Email is the fastest way to reach me.</p>
+
+      <div class="contact__email" data-reveal>
+        <span class="contact__addr" id="emailAddr">deepikashyap85@gmail.com</span>
+        <button class="btn btn--ink" id="copyEmail" type="button" data-magnetic>Copy email</button>
       </div>
 
-      <h2 class="contact__title" data-split>Let's <em>build</em><br>something.</h2>
-
-      <div class="contact__grid">
-        <p class="contact__desc" data-reveal>
-          Open to Software Engineering internships, open-source collaboration, and AI/ML work.
-          The fastest way to reach me is email.
-        </p>
-        <a class="contact__orb" href="mailto:deepikashyap85@gmail.com" data-magnetic="0.4" data-cursor="Write ↗">
-          <span class="contact__orb-inner"><span>Say</span><span class="serif">hello</span></span>
-        </a>
+      <div class="contact__links" data-reveal>
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/deepika-kashyap-2270bb36a/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        <a class="btn btn--ghost" href="https://github.com/DeepikaKashyapp" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a class="btn btn--ghost" href="mailto:deepikashyap85@gmail.com">Email ↗</a>
+        <a class="btn btn--ghost" id="resumeBtn" href="resume.pdf" target="_blank" rel="noopener" hidden>Résumé (PDF) ↓</a>
       </div>
-
-      <ul class="contact__links">
-        <li data-reveal>
-          <a class="contact__link" href="mailto:deepikashyap85@gmail.com">
-            <span class="contact__label mono">email</span>
-            <span class="contact__value">deepikashyap85@gmail.com</span>
-            <span class="contact__arrow" aria-hidden="true">→</span>
-          </a>
-        </li>
-        <li data-reveal>
-          <a class="contact__link" href="https://www.linkedin.com/in/deepika-kashyap-2270bb36a/" target="_blank" rel="noopener noreferrer">
-            <span class="contact__label mono">linkedin</span>
-            <span class="contact__value">/in/deepika-kashyap</span>
-            <span class="contact__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li data-reveal>
-          <a class="contact__link" href="https://github.com/DeepikaKashyapp" target="_blank" rel="noopener noreferrer">
-            <span class="contact__label mono">github</span>
-            <span class="contact__value">@DeepikaKashyapp</span>
-            <span class="contact__arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ul>
     </div>
   </section>
 
 </main>
 
-<footer class="footer" data-theme="light">
+<footer class="footer">
   <div class="footer__bar mono">
-    <p>© <span class="js-year">2026</span> Deepika Kashyap — designed &amp; built with HTML, CSS &amp; JS.</p>
-    <p>Kanpur, IN · <span class="js-time">--:--</span> IST</p>
-    <a href="#top" class="footer__top"><span class="roll">Back to top</span> ↑</a>
+    <p>© <span class="js-year">2026</span> Deepika Kashyap · built with HTML, CSS, JS, Three.js &amp; too much chai</p>
+    <p>Kanpur · <span class="js-time">--:--</span> IST</p>
+    <a href="#top">Back to top ↑</a>
   </div>
-  <div class="footer__mega" aria-hidden="true"><span>Deepika Kashyap</span></div>
+  <p class="footer__mega" aria-hidden="true"><span style="--c:var(--pink)">d</span><span style="--c:var(--orange)">e</span><span style="--c:var(--yellow)">e</span><span style="--c:var(--mint)">p</span><span style="--c:var(--blue)">i</span><span style="--c:var(--purple)">k</span><span style="--c:var(--pink)">a</span></p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js" defer></script>
+<script src="js/confetti.js" defer></script>
+<script src="js/avatar.js" defer></script>
+<script src="js/game.js" defer></script>
+<script src="js/terminal.js" defer></script>
 <script src="script.js" defer></script>
 </body>
 </html>
